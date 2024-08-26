@@ -7,6 +7,7 @@ import { Homepage } from "./pages/Homepage";
 import ProductListingPage from "./pages/ProductListingPage";
 import { GenRoute } from "./pages/routes/GenRoute";
 import { ProductDetailsPage } from "./pages/ProductDetailsPage";
+import { ShoppingCartPage } from "./pages/ShoppingCartPage";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
           {
             path: "/details",
             element: <ProductDetailsPage />,
+          },
+          {
+            path: "/cart",
+            element: <ShoppingCartPage />,
           },
         ],
       },
