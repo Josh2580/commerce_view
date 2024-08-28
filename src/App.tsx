@@ -8,6 +8,7 @@ import ProductListingPage from "./pages/ProductListingPage";
 import { GenRoute } from "./pages/routes/GenRoute";
 import { ProductDetailsPage } from "./pages/ProductDetailsPage";
 import { ShoppingCartPage } from "./pages/ShoppingCartPage";
+import { CheckoutPage } from "./pages/CheckoutPage";
 
 const router = createBrowserRouter([
   {
@@ -39,10 +40,10 @@ const router = createBrowserRouter([
       },
     ],
   },
-  // {
-  //   path: "/list",
-  //   element: <ProductListingPage />,
-  // },
+  {
+    path: "/checkout",
+    element: <CheckoutPage />,
+  },
 ]);
 
 const App: React.FC = () => {
