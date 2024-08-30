@@ -4,7 +4,7 @@ import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // import "./App.css";
 import { Homepage } from "./pages/Homepage";
-import ProductListingPage from "./pages/ProductListingPage";
+import { ProductListingPage } from "./pages/ProductListingPage";
 import { GenRoute } from "./pages/routes/GenRoute";
 import { ProductDetailsPage } from "./pages/ProductDetailsPage";
 import { ShoppingCartPage } from "./pages/ShoppingCartPage";
@@ -16,10 +16,11 @@ import { OrderHistory } from "./components/OrderHistory";
 import { ProfileSettings } from "./components/ProfileSettings";
 import { AddressBook } from "./components/AddressBook";
 import { PaymentMethods } from "./components/PaymentMethods";
-import { Wishlist } from "./components/Wishlist";
+import { WishList } from "./components/Wishlist";
 import { LoyaltyPrograms } from "./components/LoyaltyPrograms";
 import { Notifications } from "./components/Notifications";
-// import { AccountView } from "./components/AccountOverview";
+import { SecurityPage } from "./pages/SecurityPage";
+import { DashboardPage } from "./pages/DashboardPage";
 
 const router = createBrowserRouter([
   {
@@ -56,15 +57,20 @@ const router = createBrowserRouter([
     path: "/account",
     element: <AccountDashboardPage />,
     children: [
-      { path: "overview", element: <AccountOverview /> },
+      { index: true, element: <AccountOverview /> },
       { path: "orders", element: <OrderHistory /> },
       { path: "settings", element: <ProfileSettings /> },
       { path: "addresses", element: <AddressBook /> },
       { path: "payment-methods", element: <PaymentMethods /> },
-      { path: "wishlist", element: <Wishlist /> },
+      { path: "wishlist", element: <WishList /> },
       { path: "loyalty", element: <LoyaltyPrograms /> },
       { path: "notifications", element: <Notifications /> },
+      { path: "security", element: <SecurityPage /> },
     ],
+  },
+  {
+    path: "/dashboard",
+    element: <DashboardPage />,
   },
 ]);
 
