@@ -1,6 +1,6 @@
 // import React from "react";
-// import { Carousel } from "../components/Carousel";
-// import { Categories } from "../components/Categories";
+import { HeroSecion } from "../components/Carousel";
+import { Categories } from "../components/Categories";
 // import { FeaturedProducts } from "../components/FeaturedProducts";
 // import { PromotionalBanners } from "../components/PromotionalBanners";
 // import { BestSellingProducts } from "../components/BestSellingProducts";
@@ -16,7 +16,7 @@
 // export const Homepage: React.FC = () => {
 //   return (
 //     <div>
-//       <Carousel />
+// <HeroSecion />
 //       <Categories />
 //       <PromotionalBanners />
 //       <FeaturedProducts />
@@ -34,10 +34,14 @@
 
 import React from "react";
 import { FaArrowRight, FaStar } from "react-icons/fa";
-import { Carousel } from "react-responsive-carousel";
+// import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import carousel styles
+import { useGetProductsQuery } from "../features/products/productApi";
 
 export const Homepage: React.FC = () => {
+  const { data } = useGetProductsQuery(undefined);
+  console.log(data);
+
   const categories = [
     { name: "Electronics", image: "/images/electronics.jpg" },
     { name: "Fashion", image: "/images/fashion.jpg" },
@@ -85,7 +89,7 @@ export const Homepage: React.FC = () => {
   return (
     <div className="bg-gray-100">
       {/* Hero Section */}
-      <div className="bg-white">
+      {/* <div className="bg-white">
         <Carousel
           showArrows={true}
           showThumbs={false}
@@ -107,32 +111,11 @@ export const Homepage: React.FC = () => {
             </div>
           ))}
         </Carousel>
-      </div>
-
+      </div> */}
+      <HeroSecion />
       {/* Category Highlights */}
-      <div className="container mx-auto py-8">
-        <h2 className="text-2xl font-bold mb-4">Shop by Category</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {categories.map((category) => (
-            <div
-              key={category.name}
-              className="bg-white shadow-md rounded-lg overflow-hidden"
-            >
-              <img
-                src={category.image}
-                alt={category.name}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4">
-                <h3 className="text-xl font-semibold">{category.name}</h3>
-                <button className="mt-2 text-indigo-600 hover:underline flex items-center">
-                  Shop Now <FaArrowRight className="ml-2" />
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+
+      <Categories />
 
       {/* Featured Products */}
       <div className="container mx-auto py-8 bg-white">
@@ -187,117 +170,6 @@ export const Homepage: React.FC = () => {
           ))}
         </div>
       </div>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8">
-        <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Customer Service</h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="#" className="hover:underline">
-                  Help Center
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Track Order
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Returns
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Shipping Info
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold mb-4">About Us</h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="#" className="hover:underline">
-                  Company Info
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Careers
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Press Releases
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Corporate Responsibility
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="#" className="hover:underline">
-                  Gift Cards
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Affiliate Program
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Terms of Use
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Stay Connected</h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="#" className="hover:underline">
-                  Facebook
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Twitter
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Instagram
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  LinkedIn
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="text-center mt-8">
-          <p className="text-sm">
-            &copy; 2024 Your Store Name. All rights reserved.
-          </p>
-        </div>
-      </footer>
     </div>
   );
 };
