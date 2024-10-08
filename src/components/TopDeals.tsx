@@ -29,23 +29,22 @@ const featuredProducts = [
   },
 ];
 
-export const FeaturedProducts: React.FC = () => {
+export const TopDeals: React.FC = () => {
   return (
     <div className=" bg-white responsive card-space">
       <div className="flex justify-between">
-        <h2 className="batch-head">Featured Products</h2>
+        <h2 className="batch-head">Top Deals</h2>
         <p className="more-btn">
           <span className="text-xs text-gray-400">More</span>
           <FaArrowRightLong className="batch-arrow" size={12} />
         </p>
       </div>
-      <div className="grid grid-cols-2 row gap-3">
+      <div className="grid grid-cols-4 row gap-3">
         {featuredProducts.map((product) => (
           <Link to={`/details/${product.name}/${product.id}`}>
             <FirstProductCard
               key={product.id}
               name={product.name}
-              oldPrice={333.55}
               price={222.33}
               imageUrl={product.image}
             />

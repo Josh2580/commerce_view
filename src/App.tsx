@@ -4,7 +4,7 @@ import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // import "./App.css";
 import { Homepage } from "./pages/Homepage";
-import { ProductListingPage } from "./pages/ProductListingPage";
+import { CategoryProductPage } from "./pages/CategoryProductPage";
 import { GenRoute } from "./pages/routes/GenRoute";
 import { ProductDetailsPage } from "./pages/ProductDetailsPage";
 import { ShoppingCartPage } from "./pages/ShoppingCartPage";
@@ -36,11 +36,11 @@ const router = createBrowserRouter([
       // },
       /* the rest of the routes */
       {
-        path: "/list",
-        element: <ProductListingPage />,
+        path: "/category/:title/:id",
+        element: <CategoryProductPage />,
       },
       {
-        path: "/details",
+        path: "/details/:title/:id",
         element: <ProductDetailsPage />,
       },
       {

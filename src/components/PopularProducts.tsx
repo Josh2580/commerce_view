@@ -7,7 +7,7 @@ import Product2 from "../assets/product-2.jpg";
 import Product3 from "../assets/product-3.jpg";
 import Product4 from "../assets/product-4.jpg";
 
-const featuredProducts = [
+const popularProducts = [
   {
     id: 1,
     name: "Smartphone XYZ",
@@ -29,18 +29,18 @@ const featuredProducts = [
   },
 ];
 
-export const FeaturedProducts: React.FC = () => {
+export const PopularProducts: React.FC = () => {
   return (
     <div className=" bg-white responsive card-space">
-      <div className="flex justify-between">
-        <h2 className="batch-head">Featured Products</h2>
+      <div className="flex justify-between ">
+        <h2 className="batch-head">Popular Products</h2>
         <p className="more-btn">
           <span className="text-xs text-gray-400">More</span>
           <FaArrowRightLong className="batch-arrow" size={12} />
         </p>
       </div>
       <div className="grid grid-cols-2 row gap-3">
-        {featuredProducts.map((product) => (
+        {popularProducts.map((product) => (
           <Link to={`/details/${product.name}/${product.id}`}>
             <FirstProductCard
               key={product.id}
