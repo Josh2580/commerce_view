@@ -11,7 +11,7 @@ import ReactPaginate from "react-paginate";
 const featuredProducts = [
   {
     id: 1,
-    name: "Smartphone XYZ",
+    name: "Smartphone XYZ Smartphone XYZ Smartphone XYZ Smartphone XYZ aaa",
     price: "$499",
     image: Product1,
   },

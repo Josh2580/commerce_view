@@ -90,7 +90,7 @@
   }
 
   .product-price {
-    @apply text-gray-600 font-bold text-base leading-none;
+    @apply text-gray-600 font-bold text-lg leading-none;
   }
 
   .price-down {
