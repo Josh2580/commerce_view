@@ -18,17 +18,9 @@ const Navbar: React.FC = () => {
           E-Commerce
         </Link>
         <div>
-          {user ? (
-            <>
-              <span className="text-white mr-4">{"user.name"}</span>
-              {/* <button onClick={handleLogout} className="text-white"> */}
-              <button className="text-white">Logout</button>
-            </>
-          ) : (
-            <Link to="/login" className="text-white">
-              Login
-            </Link>
-          )}
+          <Link to="/login" className="text-white">
+            Login
+          </Link>
         </div>
       </div>
     </nav>

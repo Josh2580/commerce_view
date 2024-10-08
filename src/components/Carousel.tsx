@@ -9,7 +9,7 @@ const images = [
 ];
 
 export const HeroSecion: React.FC = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  let [currentSlide, setCurrentSlide] = useState(0);
 
   const promotions = [
     {
@@ -64,6 +64,7 @@ export const HeroSecion: React.FC = () => {
             <div className="legend">
               <h3 className="text-xl font-semibold">{promo.title}</h3>
               <p>{promo.description}</p>
+              <div> currentSlide: {currentSlide}</div>
             </div>
           </div>
         ))}

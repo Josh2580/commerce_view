@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaBell, FaTrash, FaCheckCircle, FaTimesCircle } from "react-icons/fa";
+import { FaBell, FaCheckCircle } from "react-icons/fa";
 
 interface Notification {
   id: string;

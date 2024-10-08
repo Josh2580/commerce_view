@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  FaLock,
-  FaKey,
-  FaShieldAlt,
-  FaEye,
-  FaEyeSlash,
-  FaTrash,
-} from "react-icons/fa";
+import { FaLock, FaKey, FaShieldAlt, FaEye, FaEyeSlash } from "react-icons/fa";
 
 export const SecurityPage: React.FC = () => {
   const [isChangingPassword, setIsChangingPassword] = useState(false);
