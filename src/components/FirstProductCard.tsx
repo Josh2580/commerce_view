@@ -11,7 +11,7 @@ type Props = {
 export const FirstProductCard = (product: Props) => {
   return (
     <div className="container  bg-white">
-      <div className="bg-white shadow-md rounded-lg overflow-hidden">
+      <div className="bg-white shadow rounded overflow-hidden">
         <img
           src={product.imageUrl}
           alt={product.name}
