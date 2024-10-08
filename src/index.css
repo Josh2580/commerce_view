@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 @layer components {
-
   .my-line-clamp-3 {
     display: -webkit-box;
     -webkit-line-clamp: 3; /* Number of lines to show */
@@ -29,14 +28,15 @@
   /* styles/globals.css */
 
   body,
-  #root {  
+  #root,
+  p,
+  h3 {
     padding: 0px;
-    margin: 0px;   
+    margin: 0px;
   }
-*{
-  @apply font-sans
-}
- 
+  * {
+    @apply font-sans;
+  }
 }
 
 @layer base {
@@ -59,44 +59,41 @@
 }
 
 @layer utilities {
-
-  .responsive{
-    @apply px-3
+  .responsive {
+    @apply px-3;
   }
 
-  .card-space{
-    @apply flex flex-col gap-3 py-3
+  .card-space {
+    @apply flex flex-col gap-3 py-3;
   }
-
 
   .batch-head {
-    @apply text-gray-800 text-lg
+    @apply text-gray-800 text-lg;
   }
 
   .batch-arrow {
-    @apply text-gray-600 w-3
+    @apply text-gray-600 w-3;
   }
 
-  .more-btn{
-    @apply flex gap-1 items-center
+  .more-btn {
+    @apply flex gap-1 items-center;
   }
 
-
-  .product-name, .product-size, .product-color {
-    @apply text-gray-600 text-xs truncate
+  .product-name,
+  .product-size,
+  .product-color {
+    @apply text-gray-600 text-xs truncate;
   }
 
-  .product-review{
-    @apply text-gray-600 w-3
+  .product-review {
+    @apply text-gray-600 w-2;
   }
-
-  
 
   .product-price {
-    @apply text-gray-600 font-bold text-base leading-none
+    @apply text-gray-600 font-bold text-base leading-none;
   }
 
-  .price-down{
-    @apply text-gray-400 text-xs line-through
+  .price-down {
+    @apply text-gray-400 text-xs line-through;
   }
 }

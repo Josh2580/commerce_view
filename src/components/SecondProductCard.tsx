@@ -25,7 +25,7 @@ export const SecondProductCard = (product: Props) => {
           alt={product.name}
           className="w-full h-48 object-cover"
         />
-        <div className="p-3">
+        <div className="p-3 flex flex-col gap-1">
           <h3 className="product-name">{product.name}</h3>
           <p className="flex gap-1">
             <span className="product-price">{product.price}</span>
@@ -42,7 +42,7 @@ export const SecondProductCard = (product: Props) => {
             )}
           </p>
           {product.reviews && (
-            <p className="flex gap-1">
+            <p className="flex gap-2">
               <span className="product-review">
                 <IoIosStar />
               </span>
