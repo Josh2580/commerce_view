@@ -85,6 +85,10 @@
     @apply text-gray-600 text-xs truncate;
   }
 
+  .product-name-2 {
+    @apply text-gray-600 text-xs my-line-clamp-2;
+  }
+
   .product-review {
     @apply text-gray-600 text-xs;
   }

@@ -23,10 +23,10 @@ export const SecondProductCard = (product: Props) => {
         <img
           src={product.imageUrl}
           alt={product.name}
-          className="w-full h-48 object-cover"
+          className="w-full h-full object-cover aspect-square"
         />
         <div className="p-3 flex flex-col gap-1">
-          <h3 className="product-name my-line-clamp-2">{product.name}</h3>
+          <h3 className="product-name-2">{product.name}</h3>
           <p className="flex gap-1 items-end">
             <span className="product-price">{product.price}</span>
             {product.oldPrice && (

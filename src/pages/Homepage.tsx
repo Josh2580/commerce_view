@@ -15,32 +15,26 @@ export const Homepage: React.FC = () => {
   // const { data } = useGetProductsQuery(undefined);
   // console.log(data);
 
-
-
-
   return (
-    <div className="bg-gray-100 container gap-3 flex flex-col">
+    <div className="bg-gray-100 container gap-3 mx-auto flex flex-col">
       {/* Hero Section */}
-    
+
       <HeroSecion />
       {/* Category Highlights */}
 
       <Categories />
 
       {/* Featured Products */}
-      <FeaturedProducts/>
+      <FeaturedProducts />
       {/* New Products */}
-      <NewProducts/>
+      <NewProducts />
       {/* Popular Products */}
-      <PopularProducts/>
+      <PopularProducts />
       {/* Official Store */}
-      <OfficialStore/>
+      <OfficialStore />
 
       {/* Sponsored */}
-      <Sponsored/>
-
-
-     
+      <Sponsored />
     </div>
   );
 };
