@@ -42,7 +42,7 @@ export const SecondProductCard = (product: Props) => {
             )}
           </p>
           {product.reviews && (
-            <p className="flex gap-2">
+            <p className="flex ">
               <span className="product-review">
                 <IoIosStar />
               </span>
