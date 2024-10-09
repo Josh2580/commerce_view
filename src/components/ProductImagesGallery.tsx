@@ -1,18 +1,13 @@
 import React, { useState } from "react";
+import Product1 from "../assets/product-1.jpg";
+import Product2 from "../assets/product-2.jpg";
+import Product3 from "../assets/product-3.jpg";
+import Product4 from "../assets/product-4.jpg";
 
 export const ProductImagesGallery: React.FC = () => {
-  const [selectedImage, setSelectedImage] = useState<string>(
-    "https://via.placeholder.com/450?text=Product+Image"
-  );
+  const [selectedImage, setSelectedImage] = useState<string>(Product1);
 
-  const images = [
-    "https://via.placeholder.com/450?text=Product+Image",
-    "https://via.placeholder.com/450?text=Another+Image",
-    "https://via.placeholder.com/450?text=Different+View",
-    "https://via.placeholder.com/450?text=Different+View",
-    "https://via.placeholder.com/450?text=Different+View",
-    "https://via.placeholder.com/450?text=Different+View",
-  ];
+  const images = [Product1, Product2, Product3, Product4, Product3, Product4];
 
   return (
     <div className="w-full md:w-1/2">

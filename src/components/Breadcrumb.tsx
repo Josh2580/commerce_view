@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const Breadcrumb: React.FC = () => {
   return (
-    <nav className="bg-gray-100 p-3 rounded-md w-full">
+    <nav className="bg-gray-100 rounded-md w-full">
       <ol className="list-reset flex">
         <li>
           <Link to="/" className="text-blue-600 hover:text-blue-800">

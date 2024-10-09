@@ -7,10 +7,10 @@ import { CustomerReviews } from "../components/CustomerReviews";
 
 export const ProductDetailsPage: React.FC = () => {
   return (
-    <div className="container mx-auto py-6 overflow-hidden">
+    <div className="container mx-auto overflow-hidden">
       <Breadcrumb />
 
-      <div className="flex flex-col md:flex-row mt-6">
+      <div className="flex flex-col">
         <ProductImagesGallery />
         <ProductInfo />
       </div>
