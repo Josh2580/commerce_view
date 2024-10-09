@@ -27,7 +27,7 @@ export const SecondProductCard = (product: Props) => {
         />
         <div className="p-3 flex flex-col gap-1">
           <h3 className="product-name my-line-clamp-2">{product.name}</h3>
-          <p className="flex gap-1">
+          <p className="flex gap-1 items-end">
             <span className="product-price">{product.price}</span>
             {product.oldPrice && (
               <span className="price-down">{product.oldPrice}</span>
