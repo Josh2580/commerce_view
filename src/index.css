@@ -22,7 +22,7 @@
   }
 
   .my-btn {
-    @apply bg-purple-800 text-gray-100 hover:bg-purple-600 p-2 rounded;
+    @apply bg-transparent border border-gray-600 w-full text-gray-600 hover:text-gray-100 hover:bg-gray-600 p-3 shadow rounded;
   }
 
   /* styles/globals.css */
@@ -93,8 +93,16 @@
     @apply text-gray-600 text-xs;
   }
 
+  .product-review-2 {
+    @apply text-gray-600 text-base;
+  }
+
   .product-price {
     @apply text-gray-600 font-semibold text-lg leading-none;
+  }
+
+  .product-price-2 {
+    @apply text-gray-600 font-semibold text-xl leading-none;
   }
 
   .price-down {
