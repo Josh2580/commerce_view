@@ -77,7 +77,7 @@ const router = createBrowserRouter([
 const App: React.FC = () => {
   return (
     <>
-      <div className="bg-slate-100">
+      <div className="bg-white">
         <RouterProvider router={router} />
       </div>
     </>

@@ -1,11 +1,31 @@
 import React from "react";
 import { IoIosStar } from "react-icons/io";
 import Product1 from "../assets/product-1.jpg";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 export const CustomerReviews: React.FC = () => {
   return (
-    <section className="mt-10">
-      <h2 className="batch-head">Customer Reviews</h2>
+    <div className=" bg-white responsive card-space">
+      <div className="flex justify-between">
+        <h2 className="batch-head">Customer Reviews</h2>
+        <p className="more-btn">
+          <span className="text-xs text-gray-400">More</span>
+          <FaArrowRightLong className="batch-arrow" size={12} />
+        </p>
+      </div>
+      {/* <div className="grid grid-cols-2 row gap-3">
+        {featuredProducts.map((product) => (
+          <Link to={`/details/${product.name}/${product.id}`}>
+            <FirstProductCard
+              key={product.id}
+              name={product.name}
+              oldPrice={333.55}
+              price={222.33}
+              imageUrl={product.image}
+            />
+          </Link>
+        ))}
+      </div> */}
       <div className="space-y-3">
         {/* Reviews */}
         {[...Array(3)].map((_, i) => (
@@ -37,11 +57,7 @@ export const CustomerReviews: React.FC = () => {
             </div>
           </div>
         ))}
-
-        {/* <div>
-          <button className="btn btn-primary">Write a Review</button>
-        </div> */}
       </div>
-    </section>
+    </div>
   );
 };

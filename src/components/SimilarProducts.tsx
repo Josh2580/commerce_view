@@ -33,7 +33,7 @@ export const SimilarProducts: React.FC = () => {
   return (
     <div className=" bg-white responsive card-space">
       <div className="flex justify-between">
-        <h2 className="batch-head">Featured Products</h2>
+        <h2 className="batch-head">Similar Products</h2>
         <p className="more-btn">
           <span className="text-xs text-gray-400">More</span>
           <FaArrowRightLong className="batch-arrow" size={12} />
