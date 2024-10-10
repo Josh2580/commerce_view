@@ -1,60 +1,46 @@
 import React from "react";
+import { IoIosStar } from "react-icons/io";
+import Product1 from "../assets/product-1.jpg";
 
 export const CustomerReviews: React.FC = () => {
   return (
     <section className="mt-10">
-      <h2 className="text-2xl font-semibold mb-4">Customer Reviews</h2>
-      <div className="space-y-6">
-        <div>
-          <div className="flex items-center space-x-2 mb-2">
-            <div className="flex items-center">
-              {[...Array(5)].map((_, i) => (
-                <svg
-                  key={i}
-                  className={`w-4 h-4 ${
-                    i < 4 ? "text-yellow-500" : "text-gray-300"
-                  }`}
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M10 15l-5.39 2.82 1.03-6-4.37-4.26 6.05-.88L10 0l2.68 5.68 6.05.88-4.37 4.26 1.03 6z" />
-                </svg>
-              ))}
+      <h2 className="batch-head">Customer Reviews</h2>
+      <div className="space-y-3">
+        {/* Reviews */}
+        {[...Array(3)].map((_, i) => (
+          <div key={i} className="bg-white shadow p-3 flex flex-col gap-2">
+            <div className="flex items-center space-x-2">
+              <div className="flex items-center">
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} className="product-review">
+                    <IoIosStar />
+                  </span>
+                ))}
+              </div>
+              <span className="product-review-2">(4 stars)</span>
             </div>
-            <span className="text-gray-500">(4 stars)</span>
-          </div>
-          <p className="text-gray-700">
-            Great phone, fast performance, and beautiful design. I love the
-            camera quality!
-          </p>
-        </div>
-
-        <div>
-          <div className="flex items-center space-x-2 mb-2">
-            <div className="flex items-center">
-              {[...Array(5)].map((_, i) => (
-                <svg
-                  key={i}
-                  className={`w-4 h-4 ${
-                    i < 5 ? "text-yellow-500" : "text-gray-300"
-                  }`}
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M10 15l-5.39 2.82 1.03-6-4.37-4.26 6.05-.88L10 0l2.68 5.68 6.05.88-4.37 4.26 1.03 6z" />
-                </svg>
-              ))}
+            <p className="product-name-2">
+              Great phone, fast performance, and beautiful design. I love the
+              camera quality!
+            </p>
+            <div className="flex gap-2  h-fit">
+              <img
+                src={Product1}
+                className="w-10 h-10 rounded-full"
+                alt="Reviewer Image"
+              />
+              <div className="flex flex-col justify-between">
+                <p className="product-name-2">Reviewer Name || Anonymous</p>
+                <p className="product-name-2">01/12/2024</p>
+              </div>
             </div>
-            <span className="text-gray-500">(5 stars)</span>
           </div>
-          <p className="text-gray-700">
-            The best iPhone I've ever used! Highly recommended.
-          </p>
-        </div>
+        ))}
 
-        <div>
+        {/* <div>
           <button className="btn btn-primary">Write a Review</button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

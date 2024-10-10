@@ -2,8 +2,9 @@ import React from "react";
 // import { Breadcrumb } from "../components/Breadcrumb";
 import { ProductImagesGallery } from "../components/ProductImagesGallery";
 import { ProductInfo } from "../components/ProductInfo";
-import { ProductDescription } from "../components/ProductDescription";
+// import { ProductDescription } from "../components/ProductDescription";
 import { CustomerReviews } from "../components/CustomerReviews";
+import { SimilarProducts } from "../components/SimilarProducts";
 
 export const ProductDetailsPage: React.FC = () => {
   return (
@@ -15,7 +16,8 @@ export const ProductDetailsPage: React.FC = () => {
         <ProductInfo />
       </div>
 
-      <ProductDescription />
+      {/* <ProductDescription /> */}
+      <SimilarProducts />
       <CustomerReviews />
     </div>
   );
