@@ -10,7 +10,7 @@ export const ProductImagesGallery: React.FC = () => {
   const images = [Product1, Product2, Product3, Product4, Product3, Product4];
 
   return (
-    <div className="w-full md:w-1/2">
+    <div className="w-full md:w-1/2 p-3">
       <img
         src={selectedImage}
         alt="Selected Product"

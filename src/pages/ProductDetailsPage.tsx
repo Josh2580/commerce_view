@@ -11,7 +11,7 @@ export const ProductDetailsPage: React.FC = () => {
     <div className="container mx-auto overflow-hidden">
       {/* <Breadcrumb /> */}
 
-      <div className="flex flex-col">
+      <div className="flex flex-col gap-3">
         <ProductImagesGallery />
         <ProductInfo />
       </div>
@@ -19,6 +19,7 @@ export const ProductDetailsPage: React.FC = () => {
       {/* <ProductDescription /> */}
       <SimilarProducts />
       <CustomerReviews />
+      <SimilarProducts />
     </div>
   );
 };

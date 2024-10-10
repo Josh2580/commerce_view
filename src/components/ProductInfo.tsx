@@ -26,52 +26,14 @@ export const ProductInfo: React.FC = () => {
   // });
 
   return (
-    <div className="w-full flex flex-col gap-3 ">
+    <div className="w-full flex flex-col gap-3 p-3">
       {/* Name or Title */}
       <div className="w-full flex h-full flex-col relative gap-3">
-        <h1 className="product-name-3 ">iPhone 12</h1>
-        {/* Reviews */}
-        <div className="flex items-center">
-          {/* <div className="flex items-center space-x-1">
-          {[...Array(4)].map((_, i) => (
-            <svg
-              key={i}
-              className="font text-yellow-500"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path d="M10 15l-5.39 2.82 1.03-6-4.37-4.26 6.05-.88L10 0l2.68 5.68 6.05.88-4.37 4.26 1.03 6z" />
-            </svg>
-          ))}
-          <svg
-            className="w-5 h-5 text-gray-300"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-          >
-            <path d="M10 15l-5.39 2.82 1.03-6-4.37-4.26 6.05-.88L10 0l2.68 5.68 6.05.88-4.37 4.26 1.03 6z" />
-          </svg>
-        </div> */}
+        <h1 className="product-name-3 ">
+          iPhone 12 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          Labore, odit?{" "}
+        </h1>
 
-          <p className="flex ">
-            <span className="product-review-2 ">
-              <IoIosStar />
-            </span>
-            <span className="product-review-2">
-              <IoIosStar />
-            </span>
-            <span className="product-review-2">
-              <IoIosStar />
-            </span>
-            <span className="product-review-2">
-              <IoIosStarHalf />
-            </span>
-            <span className="product-review-2">
-              <IoIosStarOutline />
-            </span>
-          </p>
-
-          <span className="product-reviews">(120 reviews)</span>
-        </div>
         {/* Price */}
         <div className="product-price-2">$899</div>
 
@@ -95,8 +57,14 @@ export const ProductInfo: React.FC = () => {
         </div>
 
         {/* Description */}
-        <div className="">
-          <h2 className="batch-head">Product Description</h2>
+        <div className=" flex flex-col gap-2">
+          <h2 className="product-name-3 font-semibold">Product Description</h2>
+          <p id="scrollTarget" className="product-name-3">
+            The iPhone 12 features a stunning design with a ceramic shield, an
+            A14 Bionic chip, 5G speed, and advanced dual-camera system. This
+            phone is available in various colors and storage options to suit
+            your needs.
+          </p>
           <p id="scrollTarget" className="product-name-3">
             The iPhone 12 features a stunning design with a ceramic shield, an
             A14 Bionic chip, 5G speed, and advanced dual-camera system. This
@@ -104,8 +72,31 @@ export const ProductInfo: React.FC = () => {
             your needs.
           </p>
         </div>
-        {/* Add to Cart Button */}
 
+        {/* Reviews */}
+        <div className="flex items-center">
+          <p className="flex ">
+            <span className="product-review-2 ">
+              <IoIosStar />
+            </span>
+            <span className="product-review-2">
+              <IoIosStar />
+            </span>
+            <span className="product-review-2">
+              <IoIosStar />
+            </span>
+            <span className="product-review-2">
+              <IoIosStarHalf />
+            </span>
+            <span className="product-review-2">
+              <IoIosStarOutline />
+            </span>
+          </p>
+
+          <span className="product-reviews">(120 reviews)</span>
+        </div>
+
+        {/* Add to Cart Button */}
         <button
           id="scrollButton"
           className="btn bg-gray-100  border border-gray-600 w-full md:w-auto"
