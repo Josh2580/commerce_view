@@ -18,7 +18,7 @@ export const Homepage: React.FC = () => {
 
   return (
     <div>
-      <div className="bg-gray-100 container mt-20 gap-3 mx-auto flex flex-col">
+      <div className="bg-gray-100 container gap-3 mx-auto flex flex-col">
         {/* Hero Section */}
 
         <HeroSecion />
