@@ -10,31 +10,34 @@ import { NewProducts } from "../components/NewProducts";
 import { PopularProducts } from "../components/PopularProducts";
 import { OfficialStore } from "../components/OfficialStore";
 import { Sponsored } from "../components/Sponsored";
+// import { GenHeader } from "../components/headers/GenHeader";
 
 export const Homepage: React.FC = () => {
   // const { data } = useGetProductsQuery(undefined);
   // console.log(data);
 
   return (
-    <div className="bg-gray-100 container gap-3 mx-auto flex flex-col">
-      {/* Hero Section */}
+    <div>
+      <div className="bg-gray-100 container mt-20 gap-3 mx-auto flex flex-col">
+        {/* Hero Section */}
 
-      <HeroSecion />
-      {/* Category Highlights */}
+        <HeroSecion />
+        {/* Category Highlights */}
 
-      <Categories />
+        <Categories />
 
-      {/* Featured Products */}
-      <FeaturedProducts />
-      {/* New Products */}
-      <NewProducts />
-      {/* Popular Products */}
-      <PopularProducts />
-      {/* Official Store */}
-      <OfficialStore />
+        {/* Featured Products */}
+        <FeaturedProducts />
+        {/* New Products */}
+        <NewProducts />
+        {/* Popular Products */}
+        <PopularProducts />
+        {/* Official Store */}
+        <OfficialStore />
 
-      {/* Sponsored */}
-      <Sponsored />
+        {/* Sponsored */}
+        <Sponsored />
+      </div>
     </div>
   );
 };

@@ -1,14 +1,14 @@
 import React from "react";
-
 import { Outlet } from "react-router-dom";
-import { GenHeader } from "../../components/headers/GenHeader";
 import { Footer } from "../../components/Footer";
+import { FirstHeader } from "../../components/headers/FirstHeader";
 
 export const GenRoute: React.FC = () => {
   return (
     <div>
-      <div className="sticky -top-0">
-        <GenHeader />
+      {/* Header */}
+      <div className="fixed top-0 w-full z-40">
+        <FirstHeader />
       </div>
       <div>
         <Outlet />
