@@ -44,15 +44,14 @@ export const FirstHeader: React.FC = () => {
             </div>
           </div>
           {/* Search Bar */}
-          <div className="">
-            <div className="relative w-full flex justify-between items-center">
-              <input
-                type="text"
-                placeholder="Search Products, Stores, Categories..."
-                className="w-full  py-1 px-3 border border-gray-400 rounded-full focus:outline-none focus:ring-1 focus:ring-indigo-500"
-              />
-              <FaSearch className="absolute right-3 top-3 text-gray-500" />
-            </div>
+
+          <div className="bg-transparent w-full flex justify-between items-center">
+            <input
+              type="text"
+              placeholder="Search Products, Stores, Categories..."
+              className="w-full  py-1 px-3 border border-gray-400 rounded-full focus:outline-none focus:ring-1 focus:ring-indigo-500"
+            />
+            <FaSearch className="absolute right-3 top-3 text-gray-500" />
           </div>
         </div>
 
