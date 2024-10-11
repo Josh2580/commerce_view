@@ -1,5 +1,5 @@
 import React from "react";
-import { HeroSecion } from "../components/Carousel";
+import { HeroSecion } from "../components/HeroSection";
 import { TopDeals } from "../components/TopDeals";
 import { ProductLists } from "../components/ProductLists";
 import { NewCategoryProducts } from "../components/NewCategoryProducts";
@@ -12,24 +12,16 @@ export const CategoryProductPage: React.FC = () => {
       <HeroSecion />
 
       {/* TopDeals */}
-      <TopDeals/>
+      <TopDeals />
 
       {/* Category Product List */}
-      <ProductLists/>
+      <ProductLists />
 
       {/* New Products in this category */}
-      < NewCategoryProducts />
+      <NewCategoryProducts />
 
       {/* TopDeals */}
-      <Sponsored/>
-
-      
+      <Sponsored />
     </div>
   );
 };
-
-
-
-
-
-

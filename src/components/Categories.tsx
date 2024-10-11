@@ -37,8 +37,8 @@ export const Categories: React.FC = () => {
         </p>
       </div>
       <div className="grid grid-cols-4  gap-3">
-        {batchData.map((product) => (
-          <Link to={`category/${product.name}/${product.id}`}>
+        {batchData.map((product, i) => (
+          <Link key={i} to={`category/${product.name}/${product.id}`}>
             <FirstBatchCard
               key={product.id}
               name={product.name}

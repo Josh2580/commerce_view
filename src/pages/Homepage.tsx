@@ -1,5 +1,5 @@
 // import React from "react";
-import { HeroSecion } from "../components/Carousel";
+import { HeroSecion } from "../components/HeroSection";
 import { Categories } from "../components/Categories";
 import React from "react";
 // import { Carousel } from "react-responsive-carousel";
@@ -20,18 +20,20 @@ export const Homepage: React.FC = () => {
     <div>
       <div className="bg-gray-100 container gap-3 mx-auto flex flex-col">
         {/* Hero Section */}
-
         <HeroSecion />
-        {/* Category Highlights */}
 
+        {/* Category Highlights */}
         <Categories />
 
         {/* Featured Products */}
         <FeaturedProducts />
+
         {/* New Products */}
         <NewProducts />
+
         {/* Popular Products */}
         <PopularProducts />
+
         {/* Official Store */}
         <OfficialStore />
 

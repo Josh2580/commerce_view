@@ -40,8 +40,8 @@ export const NewProducts: React.FC = () => {
         </p>
       </div>
       <div className="grid grid-cols-2 row gap-3">
-        {newProducts.map((product) => (
-          <Link to={`/details/${product.name}/${product.id}`}>
+        {newProducts.map((product, i) => (
+          <Link key={i} to={`/details/${product.name}/${product.id}`}>
             <FirstProductCard
               key={product.id}
               name={product.name}

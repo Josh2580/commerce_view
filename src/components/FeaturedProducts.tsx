@@ -7,6 +7,8 @@ import Product2 from "../assets/product-2.jpg";
 import Product3 from "../assets/product-3.jpg";
 import Product4 from "../assets/product-4.jpg";
 
+const images = [Product1, Product2, Product3, Product4];
+
 const featuredProducts = [
   {
     id: 1,
@@ -40,8 +42,8 @@ export const FeaturedProducts: React.FC = () => {
         </p>
       </div>
       <div className="grid grid-cols-2 row gap-3">
-        {featuredProducts.map((product) => (
-          <Link to={`/details/${product.name}/${product.id}`}>
+        {featuredProducts.map((product, i) => (
+          <Link key={i} to={`/details/${product.name}/${product.id}`}>
             <FirstProductCard
               key={product.id}
               name={product.name}
