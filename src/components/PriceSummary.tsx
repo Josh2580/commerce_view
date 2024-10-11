@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const PriceSummary: React.FC = () => {
   const subtotal = 899; // Example value
@@ -26,9 +27,12 @@ export const PriceSummary: React.FC = () => {
           <span>Total</span>
           <span>${total.toFixed(2)}</span>
         </div>
-        <button className="btn py-0 px-2  btn-circle border border-gray-400 w-full mt-6">
+        <Link
+          to={"/checkout"}
+          className="btn py-0 px-2  btn-circle border border-gray-400 w-full mt-6"
+        >
           Checkout
-        </button>
+        </Link>
       </div>
     </div>
   );
