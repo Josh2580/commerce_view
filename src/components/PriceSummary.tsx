@@ -26,7 +26,7 @@ export const PriceSummary: React.FC = () => {
           <span>Total</span>
           <span>${total.toFixed(2)}</span>
         </div>
-        <button className="btn btn-primary w-full mt-6">
+        <button className="btn p-0  btn-circle border border-gray-400 w-full mt-6">
           Proceed to Checkout
         </button>
       </div>

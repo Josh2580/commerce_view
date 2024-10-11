@@ -13,19 +13,7 @@ export const CustomerReviews: React.FC = () => {
           <FaArrowRightLong className="batch-arrow" size={12} />
         </p>
       </div>
-      {/* <div className="grid grid-cols-2 row gap-3">
-        {featuredProducts.map((product) => (
-          <Link to={`/details/${product.name}/${product.id}`}>
-            <FirstProductCard
-              key={product.id}
-              name={product.name}
-              oldPrice={333.55}
-              price={222.33}
-              imageUrl={product.image}
-            />
-          </Link>
-        ))}
-      </div> */}
+
       <div className="space-y-3">
         {/* Reviews */}
         {[...Array(3)].map((_, i) => (

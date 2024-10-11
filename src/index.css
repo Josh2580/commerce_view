@@ -37,6 +37,12 @@
   * {
     @apply font-sans;
   }
+
+  .product-name,
+  .product-size,
+  .product-color {
+    @apply text-gray-600 text-xs truncate;
+  }
 }
 
 @layer base {
@@ -77,12 +83,6 @@
 
   .more-btn {
     @apply flex gap-1 items-center;
-  }
-
-  .product-name,
-  .product-size,
-  .product-color {
-    @apply text-gray-600 text-xs truncate;
   }
 
   .product-name-2 {
