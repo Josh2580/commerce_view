@@ -60,7 +60,7 @@ export const HeroSecion: React.FC = () => {
       {images.map((image, index) => (
         <div
           key={index}
-          // className={`carousel-item w-1/5 flex-shrink-0 transition-transform duration-500 ease-in-out`}
+          // className=""
         >
           {/* Image element */}
           <img
