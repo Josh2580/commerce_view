@@ -8,7 +8,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import carous
 import { FeaturedProducts } from "../components/FeaturedProducts";
 import { NewProducts } from "../components/NewProducts";
 import { PopularProducts } from "../components/PopularProducts";
-import { OfficialStore } from "../components/OfficialStore";
+import { Stores } from "../components/Stores";
 import { Sponsored } from "../components/Sponsored";
 // import { GenHeader } from "../components/headers/GenHeader";
 
@@ -25,17 +25,17 @@ export const Homepage: React.FC = () => {
         {/* Category Highlights */}
         <Categories />
 
-        {/* Featured Products */}
-        <FeaturedProducts />
-
         {/* New Products */}
         <NewProducts />
 
-        {/* Popular Products */}
-        <PopularProducts />
+        {/* Featured Products */}
+        <FeaturedProducts />
 
         {/* Official Store */}
-        <OfficialStore />
+        <Stores />
+
+        {/* Popular Products */}
+        <PopularProducts />
 
         {/* Sponsored */}
         <Sponsored />

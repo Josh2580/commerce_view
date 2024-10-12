@@ -69,6 +69,18 @@
   .my-carousel-category-sliderClass {
     @apply gap-3;
   }
+  .my-carousel-herosection-itemClass {
+    @apply w-max shadow my-square-image;
+  }
+  .my-carousel-herosection-containerClass {
+    @apply p-0 container;
+  }
+  /* .my-carousel-herosection-dotListClass {
+    @apply bg-red-500 p-4;
+  } */
+  .my-carousel-herosection-sliderClass {
+    @apply gap-3;
+  }
 }
 
 @layer base {

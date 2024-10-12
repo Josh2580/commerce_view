@@ -1,68 +1,88 @@
-import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { Link } from "react-router-dom";
+import Product1 from "../assets/product-1.jpg";
+import Product2 from "../assets/product-2.jpg";
+import Product3 from "../assets/product-3.jpg";
+import Product4 from "../assets/product-4.jpg";
+import Product5 from "../assets/product-5.jpg";
+import Product6 from "../assets/product-6.jpg";
+import Product7 from "../assets/product-7.jpg";
+import Product8 from "../assets/product-8.jpg";
+import Product9 from "../assets/product-9.jpg";
+import Product10 from "../assets/product-10.jpg";
+import Product11 from "../assets/product-11.jpg";
+import Product12 from "../assets/product-12.jpg";
 
 // Define the HeroSection component
-export const HeroSecion: React.FC = () => {
+export const HeroSecion = () => {
   // Array of image URLs to display in the carousel
   const images = [
-    "https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp",
-    "https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.webp",
-    "https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp",
-    "https://img.daisyui.com/images/stock/photo-1494253109108-2e30c049369b.webp",
-    "https://img.daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.webp",
-    "https://img.daisyui.com/images/stock/photo-1559181567-c3190ca9959b.webp",
-    "https://img.daisyui.com/images/stock/photo-1601004890684-d8cbf643f5f2.webp",
+    Product5,
+    Product6,
+    Product7,
+    Product8,
+    Product1,
+    Product2,
+    Product3,
+    Product4,
+    Product9,
+    Product10,
+    Product11,
+    Product12,
   ];
 
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5,
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
+      breakpoint: { max: 4000, min: 1280 },
       items: 3,
     },
+    desktop: {
+      breakpoint: { max: 1280, min: 1024 },
+      items: 2,
+    },
     tablet: {
-      breakpoint: { max: 1024, min: 464 },
+      breakpoint: { max: 1024, min: 768 },
       items: 2,
     },
     mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
+      breakpoint: { max: 768, min: 0 },
+      items: 2,
     },
   };
 
   return (
-    <div className="my-responisve">
+    <div className="my-responisve py-0 my-0">
       <Carousel
         swipeable={true}
-        draggable={false}
+        draggable={true}
         showDots={true}
         responsive={responsive}
-        ssr={true} // means to render carousel on server-side.
+        // ssr={true} // means to render carousel on server-side.
         infinite={true}
         autoPlay={true}
         autoPlaySpeed={3000}
         keyBoardControl={true}
-        // customTransition="all .5"
-        customTransition="all 1"
-        // transitionDuration={500}
-        transitionDuration={1000}
-        containerClass="carousel-container"
-        // removeArrowOnDeviceType={["tablet", "mobile"]}
+        customTransition="all .5"
+        transitionDuration={500}
         removeArrowOnDeviceType={["mobile"]}
-        // deviceType={this.props.deviceType}
-        dotListClass="custom-dot-list-style"
-        itemClass="carousel-item-padding-40-px"
+        // dotListClass="my-carousel-herosection-dotListClass"
+        containerClass="my-carousel-herosection-containerClass"
+        itemClass="my-carousel-herosection-itemClass"
+        sliderClass="my-carousel-herosection-sliderClass"
       >
         {images.map((image, index) => (
-          <div key={index} className="">
-            {/* Image element */}
-            <img src={image} alt={`Slide ${index}`} className="" />
-          </div>
+          <Link className="" key={index} to="#">
+            <div key={index} className="">
+              {/* Image element */}
+              <img
+                src={image}
+                alt={`Slide ${index}`}
+                className="my-square-image object-fill"
+              />
+            </div>
+          </Link>
         ))}
       </Carousel>
     </div>
