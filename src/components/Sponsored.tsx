@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-
-import { FirstBatchCard } from "./FirstBatchCard";
 import Product1 from "../assets/product-1.jpg";
 import Product2 from "../assets/product-2.jpg";
 import Product3 from "../assets/product-3.jpg";
