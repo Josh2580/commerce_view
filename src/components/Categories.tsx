@@ -110,7 +110,7 @@ export const Categories = () => {
         // customTransition="all 1"
         // transitionDuration={500}
         // transitionDuration={1000}
-        removeArrowOnDeviceType={["mobile"]}
+        // removeArrowOnDeviceType={["mobile"]}
         // dotListClass="my-carousel-category-dotListClass"
         containerClass="my-carousel-category-containerClass"
         itemClass="my-carousel-category-itemClass"
