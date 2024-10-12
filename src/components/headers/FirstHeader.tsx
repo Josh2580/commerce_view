@@ -10,7 +10,7 @@ export const FirstHeader: React.FC = () => {
 
   return (
     <header className="bg-white shadow-md">
-      <div className="container mx-auto responisve flex justify-between items-center">
+      <div className="container mx-auto my-responisve flex justify-between items-center">
         <div className=" flex  flex-col w-full gap-3">
           <div className=" flex justify-between items-center w-full">
             {/* Left Side  */}
