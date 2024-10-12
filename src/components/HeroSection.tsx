@@ -53,38 +53,42 @@ export const HeroSecion = () => {
   };
 
   return (
-    <div className="my-responisve py-0 my-0">
-      <Carousel
-        swipeable={true}
-        draggable={true}
-        showDots={true}
-        responsive={responsive}
-        // ssr={true} // means to render carousel on server-side.
-        infinite={true}
-        autoPlay={true}
-        autoPlaySpeed={3000}
-        keyBoardControl={true}
-        customTransition="all .5"
-        transitionDuration={500}
-        removeArrowOnDeviceType={["mobile"]}
-        // dotListClass="my-carousel-herosection-dotListClass"
-        containerClass="my-carousel-herosection-containerClass"
-        itemClass="my-carousel-herosection-itemClass"
-        sliderClass="my-carousel-herosection-sliderClass"
-      >
-        {images.map((image, index) => (
-          <Link className="" key={index} to="#">
-            <div key={index} className="">
-              {/* Image element */}
-              <img
-                src={image}
-                alt={`Slide ${index}`}
-                className="my-square-image object-fill"
-              />
-            </div>
-          </Link>
-        ))}
-      </Carousel>
+    <div className="bg-indigo-700">
+      <div className="my-responisve py-0 my-0">
+        <Carousel
+          swipeable={true}
+          draggable={true}
+          showDots={false}
+          responsive={responsive}
+          centerMode={false}
+          partialVisible={false}
+          // ssr={true} // means to render carousel on server-side.
+          infinite={true}
+          autoPlay={true}
+          autoPlaySpeed={3000}
+          keyBoardControl={true}
+          customTransition="all .5"
+          transitionDuration={500}
+          removeArrowOnDeviceType={["mobile"]}
+          // dotListClass="my-carousel-herosection-dotListClass"
+          containerClass="my-carousel-herosection-containerClass"
+          itemClass="my-carousel-herosection-itemClass"
+          sliderClass="my-carousel-herosection-sliderClass"
+        >
+          {images.map((image, index) => (
+            <Link className="" key={index} to="#">
+              <div key={index} className="">
+                {/* Image element */}
+                <img
+                  src={image}
+                  alt={`Slide ${index}`}
+                  className="my-square-image object-fill"
+                />
+              </div>
+            </Link>
+          ))}
+        </Carousel>
+      </div>
     </div>
   );
 };
