@@ -44,7 +44,7 @@
     @apply text-gray-600 text-xs truncate;
   }
 
-  .responisve {
+  .my-responisve {
     @apply p-3 lg:px-10;
   }
 
@@ -53,6 +53,21 @@
   }
   .body-3 {
     @apply text-xs text-gray-600;
+  }
+  .my-square-image {
+    @apply w-full h-full object-cover aspect-square;
+  }
+  .my-carousel-category-itemClass {
+    @apply w-max;
+  }
+  .my-carousel-category-containerClass {
+    @apply p-0 container;
+  }
+  /* .my-carousel-category-dotListClass {
+    @apply bg-red-500 p-4;
+  } */
+  .my-carousel-category-sliderClass {
+    @apply gap-3;
   }
 }
 
@@ -72,6 +87,35 @@
 
   .my-scrollbar-hidden {
     -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+  }
+  /* Custom scrollbar styles */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  /* Track */
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #f0f0f0; /* Light background for the track */
+    border-radius: 10px;
+  }
+
+  /* Handle */
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #888; /* Darker color for the handle */
+    border-radius: 10px;
+    border: 2px solid #f0f0f0; /* Padding inside the scrollbar */
+  }
+
+  /* Handle on hover */
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Darker on hover */
+  }
+
+  /* For Mozilla Firefox */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f0f0f0; /* Handle color followed by track color */
   }
 }
 

@@ -10,14 +10,14 @@ type Props = {
 
 export const FirstProductCard = (product: Props) => {
   return (
-    <div className="container  bg-white">
+    <div className=" bg-white">
       <div className="bg-white shadow rounded overflow-hidden">
         <img
           src={product.imageUrl}
           alt={product.name}
           className="w-full h-auto max-h-48 object-cover"
         />
-        <div className="p-3">
+        <div className="p-1 sm:p-2">
           <h3 className="product-name">{product.name}</h3>
           <p className="">
             <span className="product-price">{product.price}</span>{" "}

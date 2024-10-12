@@ -14,7 +14,7 @@ export const ProductImagesGallery: React.FC = () => {
       <img
         src={selectedImage}
         alt="Selected Product"
-        className="w-full h-full object-cover aspect-square"
+        className="my-square-image"
       />
       <div className="flex mt-3 space-x-3 overflow-scroll">
         {images.map((img, index) => (

@@ -36,40 +36,35 @@ export const HeroSecion: React.FC = () => {
   };
 
   return (
-    <Carousel
-      swipeable={true}
-      draggable={false}
-      showDots={true}
-      responsive={responsive}
-      ssr={true} // means to render carousel on server-side.
-      infinite={true}
-      autoPlay={true}
-      autoPlaySpeed={3000}
-      keyBoardControl={true}
-      // customTransition="all .5"
-      customTransition="all 1"
-      // transitionDuration={500}
-      transitionDuration={1000}
-      containerClass="carousel-container"
-      // removeArrowOnDeviceType={["tablet", "mobile"]}
-      removeArrowOnDeviceType={["mobile"]}
-      // deviceType={this.props.deviceType}
-      dotListClass="custom-dot-list-style"
-      itemClass="carousel-item-padding-40-px"
-    >
-      {images.map((image, index) => (
-        <div
-          key={index}
-          // className=""
-        >
-          {/* Image element */}
-          <img
-            src={image}
-            alt={`Slide ${index}`}
-            // className="rounded-lg w-full object-cover"
-          />
-        </div>
-      ))}
-    </Carousel>
+    <div className="my-responisve">
+      <Carousel
+        swipeable={true}
+        draggable={false}
+        showDots={true}
+        responsive={responsive}
+        ssr={true} // means to render carousel on server-side.
+        infinite={true}
+        autoPlay={true}
+        autoPlaySpeed={3000}
+        keyBoardControl={true}
+        // customTransition="all .5"
+        customTransition="all 1"
+        // transitionDuration={500}
+        transitionDuration={1000}
+        containerClass="carousel-container"
+        // removeArrowOnDeviceType={["tablet", "mobile"]}
+        removeArrowOnDeviceType={["mobile"]}
+        // deviceType={this.props.deviceType}
+        dotListClass="custom-dot-list-style"
+        itemClass="carousel-item-padding-40-px"
+      >
+        {images.map((image, index) => (
+          <div key={index} className="">
+            {/* Image element */}
+            <img src={image} alt={`Slide ${index}`} className="" />
+          </div>
+        ))}
+      </Carousel>
+    </div>
   );
 };

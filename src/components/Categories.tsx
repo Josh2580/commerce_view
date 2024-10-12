@@ -1,11 +1,13 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import { FaArrowRightLong } from "react-icons/fa6";
+
 import { FirstBatchCard } from "./FirstBatchCard";
 import Product1 from "../assets/product-1.jpg";
 import Product2 from "../assets/product-2.jpg";
 import Product3 from "../assets/product-3.jpg";
 import Product4 from "../assets/product-4.jpg";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 const batchData = [
   {
@@ -24,21 +26,102 @@ const batchData = [
     name: "Wireless Earbuds",
     image: Product4,
   },
+  {
+    id: 5,
+    name: "Smartphone XYZ",
+    image: Product1,
+  },
+  {
+    id: 6,
+    name: "Designer Handbag",
+    image: Product2,
+  },
+  { id: 7, name: 'LED TV 55"', image: Product3 },
+  {
+    id: 8,
+    name: "Wireless Earbuds",
+    image: Product4,
+  },
+  {
+    id: 9,
+    name: "Wireless Earbuds",
+    image: Product1,
+  },
+  {
+    id: 10,
+    name: "Wireless Earbuds",
+    image: Product3,
+  },
+  {
+    id: 11,
+    name: "Wireless Earbuds",
+    image: Product4,
+  },
+  {
+    id: 12,
+    name: "Wireless Earbuds",
+    image: Product2,
+  },
 ];
 
-export const Categories: React.FC = () => {
+export const Categories = () => {
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 1280 },
+      items: 7,
+      partialVisibilityGutter: 40,
+    },
+    desktop: {
+      breakpoint: { max: 1280, min: 1024 },
+      items: 7,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 768 },
+      items: 6,
+    },
+    mobile: {
+      breakpoint: { max: 768, min: 0 },
+      items: 4,
+      partialVisibilityGutter: 30, // this is needed to tell the amount of px that should be visible.
+    },
+  };
+
   return (
-    <div className=" bg-white responsive card-space">
-      <div className="flex justify-between ">
-        <h2 className="batch-head"></h2>
+    <div className=" bg-white my-responisve card-space">
+      <div className="flex justify-between">
+        <h2 className="batch-head">Categories</h2>
         <p className="more-btn">
           <span className="text-xs text-gray-400">More</span>
           <FaArrowRightLong className="batch-arrow" size={12} />
         </p>
       </div>
-      <div className="grid grid-cols-4  gap-3">
+      <Carousel
+        swipeable={true}
+        draggable={false}
+        showDots={false}
+        responsive={responsive}
+        // ssr={true} // means to render carousel on server-side.
+        // infinite={true}
+        // autoPlay={true}
+        // autoPlaySpeed={3000}
+        keyBoardControl={true}
+        // // customTransition="all .5"
+        // customTransition="all 1"
+        // transitionDuration={500}
+        // transitionDuration={1000}
+        removeArrowOnDeviceType={["mobile"]}
+        // dotListClass="my-carousel-category-dotListClass"
+        containerClass="my-carousel-category-containerClass"
+        itemClass="my-carousel-category-itemClass"
+        sliderClass="my-carousel-category-sliderClass"
+      >
         {batchData.map((product, i) => (
-          <Link key={i} to={`category/${product.name}/${product.id}`}>
+          <Link
+            className=""
+            key={i}
+            to={`category/${product.name}/${product.id}`}
+          >
             <FirstBatchCard
               key={product.id}
               name={product.name}
@@ -46,7 +129,7 @@ export const Categories: React.FC = () => {
             />
           </Link>
         ))}
-      </div>
+      </Carousel>
     </div>
   );
 };
