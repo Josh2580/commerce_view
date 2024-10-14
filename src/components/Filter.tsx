@@ -2,7 +2,7 @@ import { IoIosArrowDown } from "react-icons/io";
 
 export const Filter = () => {
   return (
-    <div className=" shadow-md flex flex-col gap-3 my-responsive w-full">
+    <div className=" shadow-md flex flex-col overflow-scroll gap-3 my-responsive w-full">
       {[...Array(8)].map((_, index) => (
         <div key={index} className=" flex flex-col gap-1">
           <p className="text-gray-50 font-semibold ">Filter Title</p>

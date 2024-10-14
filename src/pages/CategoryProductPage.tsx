@@ -23,18 +23,17 @@ export const CategoryProductPage = () => {
     dispatch(setSortFilter(true));
 
     return () => {
-      // dispatch(activateBar());
       dispatch(setSortFilter(false));
     };
   }, []);
 
   return (
-    <div className="relative container w-full gap-5 mx-auto my-responsive lg:flex ">
+    <div className="container gap-5 mx-auto my-responsive lg:flex ">
       {/* <div className="w-1/4 hidden lg:block "> */}
       <div
-        className={`absolute bg-black transition-transform  ${
-          isCurrentFilter ? "translate-x-1" : "translate-x-80"
-        }  bg-opacity-60 backdrop-blur-lg  p-2 flex w-1/2 `}
+        className={` fixed bg-black transition-transform scale-x-100 ${
+          isCurrentFilter ? "translate-y-0" : "-translate-y-full"
+        }  bg-opacity-60 backdrop-blur-lg  p-2 flex w-full `}
       >
         <Filter />
       </div>

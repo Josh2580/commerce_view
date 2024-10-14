@@ -10,7 +10,7 @@ export const GenRoute: React.FC = () => {
       <div className="fixed top-0 w-full z-40 ">
         <FirstHeader />
       </div>
-      <div className="mt-24 ">
+      <div className="mt-20 ">
         <Outlet />
       </div>
       <div>

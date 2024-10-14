@@ -29,7 +29,8 @@ export const headerSlice = createSlice({
       state.sortFilterIcon = action.payload;
     },
     isFilter: (state, action: PayloadAction<boolean>) => {
-      state.sortFilterIcon = action.payload;
+      state.isFilter = action.payload;
+      console.log("Current Filter", action.payload);
     },
   },
 });

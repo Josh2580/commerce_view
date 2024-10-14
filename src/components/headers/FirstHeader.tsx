@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { BsCart3 } from "react-icons/bs";
 import { HiOutlineUser } from "react-icons/hi";
@@ -24,8 +24,12 @@ export const FirstHeader = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const FilterHandler = () => {
-    console.log("FilterHandler")
-  }
+    dispatch(isFilter(!isCurrentFilter));
+  };
+
+  useEffect(() => {
+    dispatch(isFilter(false));
+  }, []);
 
   return (
     <header className="bg-white shadow-md">
@@ -124,7 +128,7 @@ export const FirstHeader = () => {
 
               {/* Right side */}
               <div
-                onClick={() => dispatch(isFilter(!isCurrentFilter))}
+                onClick={() => FilterHandler()}
                 className=" w-fit py-1 px-3 gap-3 cursor-pointer flex rounded-full border border-gray-400 items-center"
               >
                 <span className="">Filter</span>
