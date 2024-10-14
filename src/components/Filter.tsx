@@ -10,14 +10,14 @@ export const Filter = () => {
   };
 
   return (
-    <div className="lg:bg-white z- shadow-md flex flex-col overflow-auto gap-3 my-responsive w-full">
+    <div className="lg:bg-white shadow-md flex flex-col overflow-auto gap-3 my-responsive w-full">
       <div
         onClick={() => FilterHandler()}
-        className="lg:hidden cursor-pointer z-20 fixed left-0 w-11/12 overflow-y-visible top-3 "
+        className="lg:hidden cursor-pointer z-20 fixed left-0 w-full overflow-y-visible top-0 "
       >
         <p className=" bg-gray-600 text-gray-50 text-center p-2">Done</p>
       </div>
-      <div className="mt-7">
+      <div className="mt-7 lg:m-0  flex flex-col gap-2 ">
         {[...Array(8)].map((_, index) => (
           <div key={index} className=" flex flex-col gap-1">
             <p className="text-gray-50 lg:text-gray-600 font-semibold ">
@@ -47,8 +47,6 @@ export const Filter = () => {
           </div>
         ))}
       </div>
-      good one
-      <br />
     </div>
   );
 };

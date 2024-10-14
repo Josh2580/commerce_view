@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 import { BiSort } from "react-icons/bi";
 import { LiaFilterSolid } from "react-icons/lia";
 import { useDispatch } from "react-redux";
-import { isFilter } from "../../features/header/headerSlice";
+import { isFilter, isSort } from "../../features/header/headerSlice";
 
 export const FirstHeader = () => {
   const dispatch = useDispatch();
@@ -20,6 +20,7 @@ export const FirstHeader = () => {
     (state: any) => state.header.sortFilterIcon
   );
   const isCurrentFilter = useSelector((state: any) => state.header.isFilter);
+  const isCurrentSort = useSelector((state: any) => state.header.isSort);
 
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -27,8 +28,13 @@ export const FirstHeader = () => {
     dispatch(isFilter(!isCurrentFilter));
   };
 
+  const SortHandler = () => {
+    dispatch(isSort(!isCurrentSort));
+  };
+
   useEffect(() => {
     dispatch(isFilter(false));
+    dispatch(isSort(false));
   }, []);
 
   return (
@@ -121,7 +127,10 @@ export const FirstHeader = () => {
             <div className="lg:hidden flex justify-between items-center w-full">
               {/* Left Side  */}
 
-              <div className=" w-fit py-1 px-3 gap-3 cursor-pointer flex rounded-full border border-gray-400 items-center">
+              <div
+                onClick={() => SortHandler()}
+                className=" w-fit py-1 px-3 gap-3 cursor-pointer flex rounded-full border border-gray-400 items-center"
+              >
                 <span className="">Sort</span>
                 <BiSort size={20} />
               </div>

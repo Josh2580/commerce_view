@@ -6,6 +6,7 @@ export interface HeaderState {
   searchBar: boolean;
   sortFilterIcon: boolean;
   isFilter: boolean;
+  isSort: boolean;
 }
 
 const initialState: HeaderState = {
@@ -13,6 +14,7 @@ const initialState: HeaderState = {
   searchBar: false,
   sortFilterIcon: false,
   isFilter: false,
+  isSort: false,
 };
 
 export const headerSlice = createSlice({
@@ -32,11 +34,15 @@ export const headerSlice = createSlice({
       state.isFilter = action.payload;
       // console.log("Current Filter", action.payload);
     },
+    isSort: (state, action: PayloadAction<boolean>) => {
+      state.isSort = action.payload;
+      // console.log("Current Filter", action.payload);
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { activateIcon, activateBar, setSortFilter, isFilter } =
+export const { activateIcon, activateBar, setSortFilter, isFilter, isSort } =
   headerSlice.actions;
 
 export default headerSlice.reducer;
