@@ -10,7 +10,7 @@ export const Filter = () => {
   };
 
   return (
-    <div className="lg:bg-white shadow-md flex flex-col overflow-auto gap-3 my-responsive w-full">
+    <div className="lg:bg-white shadow-md flex flex-col overflow-auto gap-3 pb-28 lg:pb-0 my-responsive w-full">
       <div
         onClick={() => FilterHandler()}
         className="lg:hidden cursor-pointer z-20 fixed left-0 w-full overflow-y-visible top-0 "
