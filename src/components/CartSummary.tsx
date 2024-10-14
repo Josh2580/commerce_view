@@ -28,14 +28,6 @@ const featuredProducts = [
 ];
 
 export const CartSummary = () => {
-  // const handleRemove = (id: number) => {
-  //   console.log(`Remove product with id ${id}`);
-  // };
-
-  // const handleQuantityChange = (id: number, quantity: number) => {
-  //   console.log(`Change quantity of product with id ${id} to ${quantity}`);
-  // };
-
   return (
     <div className=" bg-white responsive card-space">
       <div className="flex justify-between">

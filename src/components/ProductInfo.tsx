@@ -26,30 +26,30 @@ export const ProductInfo: React.FC = () => {
   // });
 
   return (
-    <div className="w-full flex flex-col gap-3 p-3">
+    <div className="w-full flex my-responsive flex-col gap-3 ">
       {/* Name or Title */}
       <div className="w-full flex h-full flex-col relative gap-3">
-        <h1 className="product-name-3 ">
+        <h1 className=" my-body-1">
           iPhone 12 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
           Labore, odit?{" "}
         </h1>
 
         {/* Price */}
-        <div className="product-price-2">$899</div>
+        <div className="my-header-1 ">$899</div>
 
         {/* Size Color Quantity */}
-        <div className="w-full flex gap-3 max-w-2xs">
-          <select className="w-full pb-1 bg-transparent border-b border-gray-600 text-sm sm:text-sm focus:outline-none focus:border-blue-800">
+        <div className="w-full flex md:flex-col gap-3 md:gap-6 max-w-2xs">
+          <select className="w-full pb-1 bg-transparent border-b my-body-2 focus:outline-none focus:border-blue-800">
             <option value="option1">Select Size</option>
             <option value="option2">Option 2</option>
             <option value="option3">Option 3</option>
           </select>
-          <select className="w-full bg-transparent border-b border-gray-600 text-sm sm:text-sm focus:outline-none focus:border-blue-800">
+          <select className="w-full bg-transparent border-b my-body-2 focus:outline-none focus:border-blue-800">
             <option value="option1">Select Color</option>
             <option value="option2">Option 2</option>
             <option value="option3">Option 3</option>
           </select>
-          <select className="w-full bg-transparent border-b border-gray-600 text-sm sm:text-sm focus:outline-none focus:border-blue-800">
+          <select className="w-full bg-transparent border-b my-body-2 focus:outline-none focus:border-blue-800">
             <option value="option1">Select Quantity</option>
             <option value="option2">Option 2</option>
             <option value="option3">Option 3</option>
@@ -59,13 +59,13 @@ export const ProductInfo: React.FC = () => {
         {/* Description */}
         <div className=" flex flex-col gap-2">
           <h2 className="product-name-3 font-semibold">Product Description</h2>
-          <p id="scrollTarget" className="product-name-3">
+          <p id="scrollTarget" className="product-nam-3 my-body-3">
             The iPhone 12 features a stunning design with a ceramic shield, an
             A14 Bionic chip, 5G speed, and advanced dual-camera system. This
             phone is available in various colors and storage options to suit
             your needs.
           </p>
-          <p id="scrollTarget" className="product-name-3">
+          <p id="scrollTarget" className="product-name-3 text-base">
             The iPhone 12 features a stunning design with a ceramic shield, an
             A14 Bionic chip, 5G speed, and advanced dual-camera system. This
             phone is available in various colors and storage options to suit
@@ -99,7 +99,7 @@ export const ProductInfo: React.FC = () => {
         {/* Add to Cart Button */}
         <button
           id="scrollButton"
-          className="btn bg-gray-100  border border-gray-600 w-full md:w-auto"
+          className="btn bg-gray-100 border text-base border-gray-600 w-full md:w-auto"
         >
           Add to Cart
         </button>

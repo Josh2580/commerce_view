@@ -10,13 +10,13 @@ export const ProductImagesGallery: React.FC = () => {
   const images = [Product1, Product2, Product3, Product4, Product3, Product4];
 
   return (
-    <div className="w-full md:w-1/2 p-3">
+    <div className="w-full my-responsive">
       <img
         src={selectedImage}
         alt="Selected Product"
-        className="my-square-image"
+        className="my-square-image "
       />
-      <div className="flex mt-3 space-x-3 overflow-scroll">
+      <div className="flex mt-3 my-custom-scrollbar space-x-3 overflow-scroll">
         {images.map((img, index) => (
           <img
             key={index}

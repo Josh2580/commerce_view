@@ -80,7 +80,7 @@ export const FirstHeader = () => {
                   className="lg:hidden text-gray-600 flex flex-col items-center "
                 >
                   <IoIosSearch className=" my-icons" />
-                  <span className="hidden lg:flex body-3">Search</span>
+                  <span className="hidden lg:flex my-header-4">Search</span>
                 </Link>
               )}
 
@@ -89,7 +89,7 @@ export const FirstHeader = () => {
                 className=" text-gray-600 flex flex-col items-center "
               >
                 <HiOutlineUser className=" my-icons" />
-                <span className="hidden lg:flex body-3">Account</span>
+                <span className="hidden lg:flex my-header-4">Account</span>
               </Link>
               <Link
                 to="/cart"
@@ -97,7 +97,7 @@ export const FirstHeader = () => {
               >
                 <BsCart3 className=" my-icons" size={20} />
 
-                <span className="hidden lg:flex body-3">Cart</span>
+                <span className="hidden lg:flex my-header-4">Cart</span>
               </Link>
               <Link
                 to="/cart"
@@ -105,7 +105,7 @@ export const FirstHeader = () => {
               >
                 <IoHeartOutline className=" my-icons" size={20} />
 
-                <span className="hidden lg:flex body-3">Saved</span>
+                <span className="hidden lg:flex my-header-4">Saved</span>
               </Link>
             </div>
           </div>
