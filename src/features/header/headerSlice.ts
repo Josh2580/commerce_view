@@ -30,7 +30,7 @@ export const headerSlice = createSlice({
     },
     isFilter: (state, action: PayloadAction<boolean>) => {
       state.isFilter = action.payload;
-      console.log("Current Filter", action.payload);
+      // console.log("Current Filter", action.payload);
     },
   },
 });

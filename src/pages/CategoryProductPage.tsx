@@ -31,9 +31,11 @@ export const CategoryProductPage = () => {
     <div className="container gap-5 mx-auto my-responsive lg:flex ">
       {/* <div className="w-1/4 hidden lg:block "> */}
       <div
-        className={` fixed bg-black transition-transform scale-x-100 ${
-          isCurrentFilter ? "translate-y-0" : "-translate-y-full"
-        }  bg-opacity-60 backdrop-blur-lg  p-2 flex w-full `}
+        className={`lg:block lg:w-1/4 lg:static fixed bg-black lg:bg-white overflow-auto lg:overflow-visible transition-transform lg:transition-none ${
+          isCurrentFilter
+            ? "translate-y-0 lg:translate-x-0"
+            : "-translate-y-full lg:-translate-y-0"
+        }  bg-opacity-60 lg:bg-opacity-100 backdrop-blur-lg lg:backdrop-blur-none  p-2 lg:p-0 flex w-full h-[90vh] lg:h-max `}
       >
         <Filter />
       </div>

@@ -71,7 +71,7 @@ export const FirstHeader = () => {
               {searchIcon && (
                 <Link
                   to="/account"
-                  className=" text-gray-600 flex flex-col items-center "
+                  className="lg:hidden text-gray-600 flex flex-col items-center "
                 >
                   <IoIosSearch className=" my-icons" />
                   <span className="hidden lg:flex body-3">Search</span>
@@ -118,7 +118,7 @@ export const FirstHeader = () => {
 
           {/* Sort Filter Icon */}
           {sortFilterIcon && (
-            <div className=" flex justify-between items-center w-full">
+            <div className="lg:hidden flex justify-between items-center w-full">
               {/* Left Side  */}
 
               <div className=" w-fit py-1 px-3 gap-3 cursor-pointer flex rounded-full border border-gray-400 items-center">
