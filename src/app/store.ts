@@ -5,6 +5,7 @@ import { authApi } from "../features/auth/authApi";
 // import { productApi } from "../features/products/productApi";
 import authReducer from "../features/auth/authSlice";
 import productReducer from "../features/products/productSlice";
+import headerReducer from "../features/header/headerSlice";
 
 export const store = configureStore({
   reducer: {
@@ -13,6 +14,7 @@ export const store = configureStore({
     // [productApi.reducerPath]: productApi.reducer,
     auth: authReducer,
     products: productReducer,
+    header: headerReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(

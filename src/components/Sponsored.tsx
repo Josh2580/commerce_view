@@ -94,7 +94,7 @@ export const Sponsored = () => {
   };
 
   return (
-    <div className=" bg-white my-responisve card-space">
+    <div className=" bg-white my-responsive card-space">
       <div className="flex justify-between">
         <h2 className="batch-head">Sponsored</h2>
         <p className="more-btn">

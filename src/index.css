@@ -44,8 +44,8 @@
     @apply text-gray-600 text-xs truncate;
   }
 
-  .my-responisve {
-    @apply p-3 lg:px-10;
+  .my-responsive {
+    @apply p-4;
   }
 
   .my-icons {

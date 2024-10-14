@@ -53,7 +53,7 @@ export const HeroSecion = () => {
   };
 
   return (
-    <div className="my-responisve py-0 my-0">
+    <div className="my-responsive py-0 my-0">
       <Carousel
         swipeable={true}
         draggable={true}

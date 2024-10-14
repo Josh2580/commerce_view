@@ -1,4 +1,3 @@
-import React from "react";
 import { FirstCartCard } from "./FirstCartCard";
 import Product1 from "../assets/product-1.jpg";
 import Product2 from "../assets/product-2.jpg";
@@ -28,7 +27,7 @@ const featuredProducts = [
   },
 ];
 
-export const CartSummary: React.FC = () => {
+export const CartSummary = () => {
   // const handleRemove = (id: number) => {
   //   console.log(`Remove product with id ${id}`);
   // };
