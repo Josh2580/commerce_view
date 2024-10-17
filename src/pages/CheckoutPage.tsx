@@ -1,16 +1,15 @@
-import React from "react";
-import { Breadcrumb } from "../components/Breadcrumb";
+// import { Breadcrumb } from "../components/Breadcrumb";
 import { ShippingForm } from "../components/ShippingForm";
 import { PaymentForm } from "../components/PaymentForm";
 import { OrderSummary } from "../components/OrderSummary";
 
-export const CheckoutPage: React.FC = () => {
+export const CheckoutPage = () => {
   return (
     <div className="container mx-auto py-6">
-      <Breadcrumb />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+      {/* <Breadcrumb /> */}
+      <div className="">
         <div>
-          <h2 className="text-2xl font-semibold mb-6">Shipping Information</h2>
+          <h2 className="my-header-2">Shipping Information</h2>
           <ShippingForm />
         </div>
         <OrderSummary />

@@ -28,14 +28,14 @@ export const ProductInfo: React.FC = () => {
   return (
     <div className="w-full flex my-responsive flex-col gap-3 ">
       {/* Name or Title */}
-      <div className="w-full flex h-full flex-col relative gap-3">
+      <div className="w-full flex h-full flex-col relative gap-3 md:gap-5">
         <h1 className=" my-body-1">
           iPhone 12 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
           Labore, odit?{" "}
         </h1>
 
         {/* Price */}
-        <div className="my-header-1 ">$899</div>
+        <div className="my-header-1">$899</div>
 
         {/* Size Color Quantity */}
         <div className="w-full flex md:flex-col gap-3 md:gap-6 max-w-2xs">

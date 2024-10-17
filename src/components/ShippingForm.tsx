@@ -1,61 +1,75 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export const ShippingForm: React.FC = () => {
+  const navigate = useNavigate();
+
+  const SubmitHandler = () => {
+    navigate("/checkout/payment");
+  };
+
   return (
-    <form className="space-y-6">
-      <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+    <div
+      className="
+   container my-responsive gap-3 mx-auto flex flex-col"
+    >
+      <form onSubmit={SubmitHandler} className="  space-y-3">
+        <div className="flex flex-col  lg:flex-row space-y-3 md:space-y-0 lg:space-x-3">
+          <input
+            type="text"
+            placeholder="Full Name"
+            className="my-input "
+            required
+          />
+          <input
+            type="number"
+            placeholder="Phone Number"
+            className="my-input"
+            required
+          />
+        </div>
         <input
-          type="text"
-          placeholder="Full Name"
-          className="input input-bordered w-full"
+          type="email"
+          placeholder="Email Address"
+          className="my-input"
           required
         />
         <input
           type="text"
-          placeholder="Phone Number"
-          className="input input-bordered w-full"
-          required
-        />
-      </div>
-      <input
-        type="text"
-        placeholder="Address Line 1"
-        className="input input-bordered w-full"
-        required
-      />
-      <input
-        type="text"
-        placeholder="Address Line 2 (Optional)"
-        className="input input-bordered w-full"
-      />
-      <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-        <input
-          type="text"
-          placeholder="City"
-          className="input input-bordered w-full"
+          placeholder="Address Line 1"
+          className="my-input"
           required
         />
         <input
           type="text"
-          placeholder="State/Province/Region"
-          className="input input-bordered w-full"
-          required
+          placeholder="Address Line 2 (Optional)"
+          className="my-input"
         />
-      </div>
-      <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-        <input
-          type="text"
-          placeholder="Country"
-          className="input input-bordered w-full"
-          required
-        />
-        <input
-          type="text"
-          placeholder="Postal/Zip Code"
-          className="input input-bordered w-full"
-          required
-        />
-      </div>
-    </form>
+        <div className="flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-3">
+          <input type="text" placeholder="City" className="my-input" required />
+          <input
+            type="text"
+            placeholder="State/Province/Region"
+            className="my-input"
+            required
+          />
+        </div>
+        <div className="flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-3">
+          <input
+            type="text"
+            placeholder="Country"
+            className="my-input"
+            required={false}
+          />
+          <input
+            type="text"
+            placeholder="Postal/Zip Code"
+            className="my-input"
+            required
+          />
+        </div>
+        <button className="my-btn">Submit</button>
+      </form>
+    </div>
   );
 };

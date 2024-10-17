@@ -14,7 +14,7 @@ export const FirstCartCard = (product: Props) => {
   return (
     // <div className="container h-full bg-white">
     <div className=" h-full p-3 shadow flex gap-3 rounded overflow-hidden">
-      <div className="w-20 flex flex-col gap-2 md:w-40">
+      <div className="w-24 flex flex-col gap-2 ">
         <img
           src={product.imageUrl}
           alt={product.name}

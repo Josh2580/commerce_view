@@ -28,7 +28,7 @@ export const PriceSummary: React.FC = () => {
           <span>${total.toFixed(2)}</span>
         </div>
         <Link
-          to={"/checkout"}
+          to={"/checkout/shipping-address"}
           className="btn py-0 px-2  btn-circle border border-gray-400 w-full mt-6"
         >
           Checkout
