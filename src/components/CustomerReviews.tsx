@@ -5,7 +5,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 
 export const CustomerReviews: React.FC = () => {
   return (
-    <div className=" bg-white responsive card-space">
+    <div className=" bg-white my-responsive card-space">
       <div className="flex justify-between">
         <h2 className="batch-head">Customer Reviews</h2>
         <p className="more-btn">
@@ -17,7 +17,7 @@ export const CustomerReviews: React.FC = () => {
       <div className="space-y-3">
         {/* Reviews */}
         {[...Array(3)].map((_, i) => (
-          <div key={i} className="bg-white shadow p-3 flex flex-col gap-2">
+          <div key={i} className="bg-white shadow-md p-3 flex flex-col gap-2">
             <div className="flex items-center space-x-2">
               <div className="flex items-center">
                 {[...Array(5)].map((_, i) => (

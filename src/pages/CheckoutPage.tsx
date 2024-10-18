@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const CheckoutPage = () => {
   return (
-    <div className="container mx-auto my-responsive flex flex-col md:flex-row gap-3 md:gap-4">
+    <div className="container  mx-auto my-responsive flex flex-col md:flex-row gap-3 md:gap-4">
       <div className="md:w-2/3 flex flex-col gap-3">
         {/* Delivery Address*/}
 

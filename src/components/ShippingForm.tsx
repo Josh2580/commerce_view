@@ -10,7 +10,7 @@ export const ShippingForm = () => {
   return (
     <div
       className="
-   container my-responsive gap-3 mx-auto flex flex-col bg-white"
+   container my-responsive gap-3 mx-auto mt-3 flex flex-col bg-white"
     >
       <form onSubmit={SubmitHandler} className="  space-y-3">
         <div className="flex flex-col  lg:flex-row space-y-3 md:space-y-0 lg:space-x-3">
