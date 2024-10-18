@@ -1,15 +1,30 @@
-import React from "react";
+import Product1 from "../assets/product-1.jpg";
+import Product2 from "../assets/product-2.jpg";
+import Product3 from "../assets/product-3.jpg";
 
-export const OrderSummary: React.FC = () => {
+export const OrderSummary = () => {
   const products = [
     {
       id: 1,
       name: "iPhone 12",
-      image: "https://via.placeholder.com/150?text=iPhone+12",
+      image: Product1,
       price: "$899",
       quantity: 1,
     },
-    // More products...
+    {
+      id: 2,
+      name: "iPhone 22",
+      image: Product2,
+      price: "$899",
+      quantity: 2,
+    },
+    {
+      id: 3,
+      name: "iPhone 32",
+      image: Product3,
+      price: "$899",
+      quantity: 3,
+    },
   ];
 
   const subtotal = 899; // Example value
@@ -19,7 +34,7 @@ export const OrderSummary: React.FC = () => {
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-lg">
-      <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
+      <h2 className="my-header-3">Order Summary</h2>
       {products.map((product) => (
         <div key={product.id} className="flex justify-between mb-4">
           <img

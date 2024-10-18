@@ -200,7 +200,7 @@
   }
 
   .product-price {
-    @apply text-gray-600 font-semibold text-lg leading-none;
+    @apply text-gray-600 font-semibold  text-lg leading-none;
   }
 
   .product-price-2 {

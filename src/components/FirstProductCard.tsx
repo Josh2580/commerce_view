@@ -19,10 +19,10 @@ export const FirstProductCard = (product: Props) => {
         />
         <div className="p-1 sm:p-2">
           <h3 className="product-name">{product.name}</h3>
-          <p className="">
-            <span className="product-price">{product.price}</span>{" "}
+          <p className="h-max">
+            <span className="product-price p-0 m-0">{product.price}</span>
             {product.oldPrice && (
-              <span className="price-down">{product.oldPrice}</span>
+              <span className="price-down p-0 m-0">{product.oldPrice}</span>
             )}
           </p>
         </div>
