@@ -96,7 +96,7 @@ const router = createBrowserRouter([
 const App: React.FC = () => {
   return (
     <>
-      <div className="bg-white">
+      <div className="bg-slate-100">
         <RouterProvider router={router} />
       </div>
     </>

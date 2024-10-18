@@ -29,7 +29,7 @@ const featuredProducts = [
 
 export const CartSummary = () => {
   return (
-    <div className=" bg-white responsive card-space">
+    <div className=" bg-white my-responsive card-space">
       <div className="flex justify-between">
         <h2 className="batch-head">Cart Summary</h2>
       </div>

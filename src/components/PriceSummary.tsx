@@ -8,8 +8,8 @@ export const PriceSummary: React.FC = () => {
   const total = subtotal + shipping - discount;
 
   return (
-    <div className="w-full md:w-1/3 md:pl-6 mt-6 md:mt-0">
-      <div className="bg-white p-6 rounded-lg shadow-lg">
+    <div className="w-full md:w-1/3 h-max bg-white rounded-lg shadow-lg my-responsive">
+      <div className=" ">
         <h2 className="text-xl font-semibold mb-4">Price Summary</h2>
         <div className="flex justify-between mb-2">
           <span>Subtotal</span>

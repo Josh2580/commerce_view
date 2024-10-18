@@ -1,7 +1,6 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 
-export const ShippingForm: React.FC = () => {
+export const ShippingForm = () => {
   const navigate = useNavigate();
 
   const SubmitHandler = () => {
@@ -11,7 +10,7 @@ export const ShippingForm: React.FC = () => {
   return (
     <div
       className="
-   container my-responsive gap-3 mx-auto flex flex-col"
+   container my-responsive gap-3 mx-auto flex flex-col bg-white"
     >
       <form onSubmit={SubmitHandler} className="  space-y-3">
         <div className="flex flex-col  lg:flex-row space-y-3 md:space-y-0 lg:space-x-3">
