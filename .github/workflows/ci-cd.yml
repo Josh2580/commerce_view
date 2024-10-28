@@ -21,7 +21,6 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: ${{ secrets.AWS_REGION }}
         run: |
           aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin ${{ secrets.ECR_REGISTRY }}
 
@@ -29,7 +28,7 @@ jobs:
         run: |
           docker build -t my-react-app .
           docker tag my-react-app:latest 980921722238.dkr.ecr.us-east-1.amazonaws.com/my-react-app:latest
-          docker push ${{ secrets.ECR_REGISTRY }}/${{ secrets.ECR_REPOSITORY }}:latest
+          docker push 980921722238.dkr.ecr.us-east-1.amazonaws.com/my-react-app:latest
 
       - name: Deploy to ECS
         run: |
