@@ -33,4 +33,4 @@ jobs:
 
       - name: Deploy to ECS
         run: |
-          aws ecs update-service --cluster my-cluster --service my-react-service --force-new-deployment
+          aws ecs update-service --cluster My-React-App-Cluster --service My-React-App-Service --force-new-deployment
