@@ -23,7 +23,7 @@ jobs:
         # AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         # AWS_REGION: ${{ secrets.AWS_REGION }}
         run: |
-          aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${{ secrets.ECR_REGISTRY }}
+          aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 980921722238.dkr.ecr.us-east-1.amazonaws.com
 
       - name: Build and push Docker image
         run: |
@@ -31,8 +31,8 @@ jobs:
           docker tag my-react-app:latest 980921722238.dkr.ecr.us-east-1.amazonaws.com/my-react-app:latest
           docker push 980921722238.dkr.ecr.us-east-1.amazonaws.com/my-react-app:latest
 
-      - name: Validate AWS credentials
-        run: aws sts get-caller-identity
+      # - name: Validate AWS credentials
+      #   run: aws sts get-caller-identity
 
       - name: Update ECS Service
         run: |
