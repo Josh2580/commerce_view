@@ -31,6 +31,9 @@ jobs:
           docker tag my-react-app:latest 980921722238.dkr.ecr.us-east-1.amazonaws.com/my-react-app:latest
           docker push 980921722238.dkr.ecr.us-east-1.amazonaws.com/my-react-app:latest
 
-      - name: Deploy to ECS now
+      - name: Validate AWS credentials
+        run: aws sts get-caller-identity
+
+      - name: Update ECS Service
         run: |
           aws ecs update-service --cluster My-React-App-Cluster --service My-React-App-Service --force-new-deployment
