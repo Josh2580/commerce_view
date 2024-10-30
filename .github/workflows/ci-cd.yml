@@ -47,4 +47,4 @@ jobs:
 
       - name: Update ECS Service
         run: |
-          aws ecs update-service --cluster My-React-App-Cluster --service My-React-App-Service-Now --force-new-deployment
+          aws ecs update-service --cluster My-React-App-Cluster --service My-Project-App-Service --force-new-deployment
