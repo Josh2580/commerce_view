@@ -27,4 +27,3 @@ dist-ssr
 .github
 .github/workflows
 ci-cd.yml
-some-change
