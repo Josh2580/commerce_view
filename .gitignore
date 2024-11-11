@@ -24,6 +24,6 @@ dist-ssr
 *.sw?
 
 ## added now
-.github
-.github/workflows
-ci-cd.yml
+# .github
+# .github/workflows
+# ci-cd.yml
