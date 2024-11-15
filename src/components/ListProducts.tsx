@@ -5,7 +5,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import Product4 from "../assets/product-4.jpg";
 import { ProductTitleType, ProductTypeFull } from "../types/ProductTypes";
 
-export const NewProducts = (result: ProductTitleType) => {
+export const ListProducts = (result: ProductTitleType) => {
   const [displayItems, setDisplayItems] = useState<ProductTypeFull[]>([]);
 
   // Handle resizing and update the displayed items based on the window size

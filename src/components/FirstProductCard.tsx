@@ -2,8 +2,8 @@
 
 type Props = {
   name: string;
-  price: number;
-  oldPrice?: number;
+  price: string;
+  oldPrice?: string;
   imageUrl: string;
   key?: string | number;
 };

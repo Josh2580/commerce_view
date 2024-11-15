@@ -1,20 +1,43 @@
-// import React from "react";
+import { useState, useEffect } from "react";
 import { HeroSecion } from "../components/HeroSection";
 import { Categories } from "../components/Categories";
-// import { useGetProductsQuery } from "../features/products/productApi";
+import {
+  useGetProductsQuery,
+  useGetFeatruedProductsQuery,
+} from "../features/products/productApi";
 import { FeaturedProducts } from "../components/FeaturedProducts";
-import { NewProducts } from "../components/NewProducts";
-import { PopularProducts } from "../components/PopularProducts";
 import { Stores } from "../components/Stores";
 import { Sponsored } from "../components/Sponsored";
 
 import { useDispatch } from "react-redux";
 import { activateIcon, activateBar } from "../features/header/headerSlice";
-import { useEffect } from "react";
+import { ProductTypeFull, FeaturedProductType } from "../types/ProductTypes";
+import { ListProducts } from "../components/ListProducts";
 
 export const Homepage = () => {
-  // const { data } = useGetProductsQuery(undefined);
-  // console.log(data);
+  // Products RTK State API call
+  const { data, isSuccess } = useGetProductsQuery(undefined);
+
+  // Featured Products RTK State API call
+  const { data: featuredData, isSuccess: featuredSuccess } =
+    useGetFeatruedProductsQuery(undefined);
+
+  // New Products State
+  const [NewProductResult, SetNewProductResult] = useState<ProductTypeFull[]>(
+    []
+  );
+
+  // Popular Products State
+  const [PopularProductResult, SetPopularProductResult] = useState<
+    ProductTypeFull[]
+  >([]);
+
+  // Featured Products State
+  const [FeaturedProductResult, SetFeaturedProductResult] = useState<
+    FeaturedProductType[]
+  >([]);
+
+  // console.log(FeaturedProductResult);
 
   const dispatch = useDispatch();
 
@@ -26,29 +49,65 @@ export const Homepage = () => {
     };
   }, []);
 
+  useEffect(() => {
+    // Sorting for New Product
+    if (isSuccess && data) {
+      const MyNewProduct = [...data.results].sort((a, b) => b.id - a.id);
+      //setting the state for new product component
+      SetNewProductResult(MyNewProduct);
+    }
+  }, [isSuccess, data]); // Only runs when `isSuccess` or `data` changes
+
+  useEffect(() => {
+    // Sorting for Populat Products
+    if (isSuccess && data) {
+      const MyPopularProduct = [...data.results].sort(
+        (a, b) => b.total_sales - a.total_sales
+      );
+      //setting the state for Popular product component
+      SetPopularProductResult(MyPopularProduct);
+    }
+  }, [isSuccess, data]); // Only runs when `isSuccess` or `data` changes
+
+  useEffect(() => {
+    if (featuredSuccess && featuredData) {
+      const MyFeaturedProduct = [...featuredData.results].sort(
+        (a, b) => b.id - a.id
+      );
+      SetFeaturedProductResult(MyFeaturedProduct);
+    }
+  }, [featuredSuccess, featuredData]);
+
   return (
     <div>
       <div className="bg-gray-100 container gap-3 mx-auto flex flex-col">
         {/* Hero Section */}
-        <HeroSecion />
+        {/* <HeroSecion /> */}
 
         {/* Category Highlights */}
         <Categories />
 
         {/* New Products */}
-        <NewProducts />
+        <ListProducts data={NewProductResult} title="New Products " />
 
         {/* Featured Products */}
-        <FeaturedProducts />
+        <FeaturedProducts
+          data={FeaturedProductResult}
+          title="Featured Products "
+        />
 
         {/* Official Store */}
-        <Stores />
+        {/* <Stores /> */}
 
         {/* Popular Products */}
-        <PopularProducts />
+        <ListProducts data={PopularProductResult} title="Popular Products " />
 
         {/* Sponsored */}
-        <Sponsored />
+        {/* Featured Products */}
+        <FeaturedProducts
+          data={FeaturedProductResult}
+          title="Sponsored Products "
+        />
       </div>
     </div>
   );
