@@ -1,0 +1,49 @@
+name: Client View Pipeline
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      MY_AWS_REGION: ${{ secrets.MY_AWS_REGION }}
+      MY_AWS_ACCOUNT_ID: ${{ secrets.MY_AWS_ACCOUNT_ID }}
+      ECR_REPOSITORY_URI: ${{ secrets.ECR_REPOSITORY_URI }}
+      ECS_CLUSTER_NAME: ${{ secrets.ECS_CLUSTER_NAME }}
+      ECS_FRONTEND_SERVICE_NAME: ${{ secrets.ECS_FRONTEND_SERVICE_NAME }}
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.MY_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.MY_AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.MY_AWS_REGION }}
+
+      - name: Log in to Amazon ECR
+        run: |
+          aws ecr get-login-password --region ${{ secrets.MY_AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.MY_AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.MY_AWS_REGION }}.amazonaws.com
+
+      - name: Build Docker image
+        run: |
+          docker build -t my-react-app .
+
+      - name: Tag and push Docker image
+        run: |
+          docker tag my-react-app:latest ${{ secrets.ECR_REPOSITORY_URI }}
+          docker push ${{ secrets.ECR_REPOSITORY_URI }}
+
+      - name: Update ECS Service
+        run: |
+          aws ecs update-service --cluster ${{ secrets.ECS_CLUSTER_NAME }} --service ${{ secrets.ECS_FRONTEND_SERVICE_NAME }} --force-new-deployment
