@@ -2,7 +2,7 @@
 
 type Props = {
   name: string;
-  imageUrl: string;
+  imageUrl?: string;
   key?: string | number;
 };
 

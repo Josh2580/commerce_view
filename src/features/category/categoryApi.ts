@@ -1,15 +1,16 @@
 import { baseApi } from "../base/baseApi";
+import { CategoryDataType } from "../../types/CategoryType";
 
 const categoryApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    getCategory: builder.query({
+    getCategory: builder.query<CategoryDataType, void>({
       query: () => "api/categories/",
     }),
     getCategoryById: builder.query({
-      query: (id) => `api/categories/${id}/`,
+      query: (category_id) => `api/categories/${category_id}/`,
     }),
-    getCategoryProducts: builder.query({
-      query: (id) => `api/categories/${id}/products/`,
+    getSubCategory: builder.query({
+      query: (category_id) => `api/categories/${category_id}/subcategories/`,
     }),
     // createCategory: builder.query({
     //   query: () => `api/categories/create/`,
@@ -21,5 +22,5 @@ const categoryApi = baseApi.injectEndpoints({
 export const {
   useGetCategoryQuery,
   useGetCategoryByIdQuery,
-  useGetCategoryProductsQuery,
+  useGetSubCategoryQuery,
 } = categoryApi;
