@@ -47,7 +47,7 @@ export const Categories = (result: CategoryTitleType) => {
       </div>
       <div className="flex lg:grid lg:grid-cols-6 gap-3 overflow-scroll lg:overflow-hidden my-custom-scrollbar">
         {displayItems.map((cat, i) => (
-          <Link key={i} to={`/details/${cat.name}/${cat.id}`}>
+          <Link key={i} to={`/${cat.name}/${cat.parent}/caty/${cat.id}`}>
             <FirstBatchCard
               key={cat.id}
               name={cat.name}

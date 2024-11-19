@@ -45,7 +45,7 @@ export const ListProducts = (result: ProductTitleType) => {
       </div>
       <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 row gap-3">
         {displayItems.map((product, i) => (
-          <Link key={i} to={`/details/${product.name}/${product.id}`}>
+          <Link key={i} to={`/${product.slug}/${product.id}/product`}>
             <FirstProductCard
               key={product.id}
               name={product.name}

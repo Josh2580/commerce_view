@@ -25,7 +25,7 @@ export interface DataType {
 }
 
 export interface ProductTitleType {
-  title: string;
+  title?: string;
   data: ProductTypeFull[];
 }
 

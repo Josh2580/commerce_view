@@ -11,6 +11,8 @@ import {
 export const FeaturedProducts = (result: FeaturedProductTitleType) => {
   const [displayItems, setDisplayItems] = useState<FeaturedProductType[]>([]);
 
+  // console.log(result);
+
   // Handle resizing and update the displayed items based on the window size
   const handleResize = () => {
     const isLargeScreen = window.innerWidth >= 1024; // lg breakpoint in Tailwind
@@ -50,7 +52,7 @@ export const FeaturedProducts = (result: FeaturedProductTitleType) => {
         {displayItems.map((product, i) => (
           <Link
             key={i}
-            to={`/details/${product.main_product.name}/${product.id}`}
+            to={`/${product.main_product.slug}/${product.id}/product`}
           >
             <FirstProductCard
               key={product.id}

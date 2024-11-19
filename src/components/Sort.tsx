@@ -22,21 +22,60 @@ export const Sort = () => {
             <p className="text-gray-50 lg:text-gray-600 font-semibold ">
               Sort By:
             </p>
-            {[...Array(4)].map((_, index) => (
-              <div key={index} className="form-control ml-2">
-                <label className="label flex justify-normal gap-2 m-0 p-0 cursor-pointer">
-                  <input
-                    type="radio"
-                    name="radio-10"
-                    className="radio radio-sm border-gray-200 lg:border-gray-600 checked:bg-gray-500"
-                    defaultChecked
-                  />
-                  <span className="label-text text-gray-100 lg:text-gray-500">
-                    Sort Sub TitleRed pill
-                  </span>
-                </label>
-              </div>
-            ))}
+            {/* {[...Array(4)].map((_, index) => ( */}
+            <div key={index} className="form-control ml-2">
+              <label className="label flex justify-normal gap-2 m-0 p-0 cursor-pointer">
+                <input
+                  type="radio"
+                  name="radio-10"
+                  className="radio radio-sm border-gray-200 lg:border-gray-600 checked:bg-gray-500"
+                  defaultChecked
+                />
+                <span className="label-text text-gray-100 lg:text-gray-500">
+                  Popular Deals
+                </span>
+              </label>
+            </div>
+            <div key={index} className="form-control ml-2">
+              <label className="label flex justify-normal gap-2 m-0 p-0 cursor-pointer">
+                <input
+                  type="radio"
+                  name="radio-10"
+                  className="radio radio-sm border-gray-200 lg:border-gray-600 checked:bg-gray-500"
+                  defaultChecked
+                />
+                <span className="label-text text-gray-100 lg:text-gray-500">
+                  New Deals
+                </span>
+              </label>
+            </div>
+            <div key={index} className="form-control ml-2">
+              <label className="label flex justify-normal gap-2 m-0 p-0 cursor-pointer">
+                <input
+                  type="radio"
+                  name="radio-10"
+                  className="radio radio-sm border-gray-200 lg:border-gray-600 checked:bg-gray-500"
+                  defaultChecked
+                />
+                <span className="label-text text-gray-100 lg:text-gray-500">
+                  Price: Low to High
+                </span>
+              </label>
+            </div>
+            <div key={index} className="form-control ml-2">
+              <label className="label flex justify-normal gap-2 m-0 p-0 cursor-pointer">
+                <input
+                  type="radio"
+                  name="radio-10"
+                  className="radio radio-sm border-gray-200 lg:border-gray-600 checked:bg-gray-500"
+                  defaultChecked
+                />
+                <span className="label-text text-gray-100 lg:text-gray-500">
+                  Price: High to Low
+                </span>
+              </label>
+            </div>
+            {/* ))} */}
           </div>
         ))}
       </div>

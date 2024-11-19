@@ -4,7 +4,7 @@ import { DataType, FeaturedDataType } from "../../types/ProductTypes";
 const productApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getProducts: builder.query<DataType, void>({
-      query: () => "api/products/",
+      query: (order_string) => `api/products/${order_string}`,
       providesTags: ["Product"],
 
       // providesTags: ["Product"],

@@ -5,10 +5,9 @@ import { HiOutlineUser } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { IoHeartOutline } from "react-icons/io5";
 import { IoIosSearch } from "react-icons/io";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { BiSort } from "react-icons/bi";
 import { LiaFilterSolid } from "react-icons/lia";
-import { useDispatch } from "react-redux";
 import { isFilter, isSort } from "../../features/header/headerSlice";
 
 export const FirstHeader = () => {
@@ -115,7 +114,7 @@ export const FirstHeader = () => {
             <div className="relative lg:hidden bg-transparent w-full flex justify-between items-center">
               <input
                 type="text"
-                placeholder="Search Products, Stores, Categories..."
+                placeholder="Search Products, Stores, Categories... now now"
                 className="w-full  py-1 px-3 border border-gray-400 rounded-full focus:outline-none focus:ring-1 focus:ring-indigo-500"
               />
               <IoIosSearch className="absolute right-3 top-3 text-gray-500" />

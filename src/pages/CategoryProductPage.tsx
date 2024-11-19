@@ -1,9 +1,9 @@
 // import { HeroSecion } from "../components/HeroSection";
-import { TopDeals } from "../components/TopDeals";
-import { ProductLists } from "../components/ProductLists";
-import { NewCategoryProducts } from "../components/NewCategoryProducts";
-import { Sponsored } from "../components/Sponsored";
+// import { TopDeals } from "../components/TopDeals";
+// import { NewCategoryProducts } from "../components/NewCategoryProducts";
+// import { Sponsored } from "../components/Sponsored";
 import { Filter } from "../components/Filter";
+import { useParams } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -11,11 +11,42 @@ import {
   // activateBar,
   setSortFilter,
 } from "../features/header/headerSlice";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Sort } from "../components/Sort";
+import { ListProducts } from "../components/ListProducts";
+import { useGetSubCategoryProductsQuery } from "../features/category/categoryApi";
+import { FeaturedProductType, ProductTypeFull } from "../types/ProductTypes";
+import { FeaturedProducts } from "../components/FeaturedProducts";
+import { useGetFeatruedProductsQuery } from "../features/products/productApi";
 
 export const CategoryProductPage = () => {
+  const { category_slug, parent_category_id, category_id } = useParams();
+  const CategoryTitle = category_slug?.toLocaleUpperCase();
+  // console.log(CategoryTitle);
+
+  // Products Category API
+  const { data, isSuccess } = useGetSubCategoryProductsQuery({
+    parent_category_id,
+    category_id,
+  });
+
+  // Featured API call state
+  const { data: featuredData, isSuccess: featuredSuccess } =
+    useGetFeatruedProductsQuery(undefined);
+  // isSuccess && console.log(data.products);
+
+  // Category Products State
+  const [CategoryProductResult, SetCategoryProductResult] = useState<
+    ProductTypeFull[]
+  >([]);
+
+  // Featured Products State
+  const [FeaturedProductResult, SetFeaturedProductResult] = useState<
+    FeaturedProductType[]
+  >([]);
+
   const dispatch = useDispatch();
+  // console.log(CategoryProductResult);
 
   const isCurrentFilter = useSelector((state: any) => state.header.isFilter);
   const isCurrentSort = useSelector((state: any) => state.header.isSort);
@@ -28,6 +59,25 @@ export const CategoryProductPage = () => {
       dispatch(setSortFilter(false));
     };
   }, []);
+
+  useEffect(() => {
+    // Filter for Category Products
+    if (isSuccess && data) {
+      SetCategoryProductResult(data.results);
+    }
+  }, [data, isSuccess]); // Only runs when `isSuccess` or `data` changes
+
+  useEffect(() => {
+    // Sorting for Featured Products
+
+    if (featuredSuccess && featuredData) {
+      const MyFeaturedProduct = [...featuredData.results].sort(
+        (a, b) => b.id - a.id
+      );
+      //setting the state for Featured product component
+      SetFeaturedProductResult(MyFeaturedProduct);
+    }
+  }, [featuredSuccess, featuredData]);
 
   return (
     <div className="container gap-5 mx-auto my-responsive lg:flex ">
@@ -58,16 +108,22 @@ export const CategoryProductPage = () => {
         {/* <HeroSecion /> */}
 
         {/* TopDeals */}
-        <TopDeals />
+        {/* <TopDeals /> */}
 
         {/* Category Product List */}
-        <ProductLists />
+        {/* <ProductLists /> */}
+        {isSuccess && (
+          <ListProducts data={CategoryProductResult} title={CategoryTitle} />
+        )}
 
-        {/* New Products in this category */}
-        <NewCategoryProducts />
+        {/* New Products in this category
+        <NewCategoryProducts /> */}
 
-        {/* TopDeals */}
-        <Sponsored />
+        {/* Sponsored */}
+        <FeaturedProducts
+          data={FeaturedProductResult}
+          title="Sponsored Products "
+        />
       </div>
     </div>
   );
