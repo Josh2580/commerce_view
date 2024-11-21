@@ -14,6 +14,7 @@ export interface ProductTypeFull {
   slug: string;
   stock: number;
   store?: number | null;
+  store_name: string | null;
   updated_at: string;
 }
 
@@ -26,6 +27,9 @@ export interface DataType {
 
 export interface ProductTitleType {
   title?: string;
+  data: ProductTypeFull[];
+}
+export interface ProductData {
   data: ProductTypeFull[];
 }
 

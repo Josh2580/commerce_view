@@ -17,11 +17,27 @@ const categoryApi = baseApi.injectEndpoints({
       query: ({
         parent_category_id,
         category_id,
+        sort_string,
       }: {
         parent_category_id: any;
         category_id: any;
+        sort_string: any;
       }) =>
-        `api/categories/${parent_category_id}/subcategories/${category_id}/products/`,
+        `api/categories/${parent_category_id}/subcategories/${category_id}/products/?${sort_string}`,
+    }),
+    getSubCategoryProductFilter: builder.query({
+      query: ({
+        parent_category_id,
+        category_id,
+        sort_string,
+        filter_string,
+      }: {
+        parent_category_id: any;
+        category_id: any;
+        sort_string: any;
+        filter_string: any;
+      }) =>
+        `api/categories/${parent_category_id}/subcategories/${category_id}/products/?${sort_string}&${filter_string}`,
     }),
     // createCategory: builder.query({
     //   query: () => `api/categories/create/`,
@@ -35,4 +51,5 @@ export const {
   useGetCategoryByIdQuery,
   useGetSubCategoryQuery,
   useGetSubCategoryProductsQuery,
+  useGetSubCategoryProductFilterQuery,
 } = categoryApi;

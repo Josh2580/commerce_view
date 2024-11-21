@@ -6,6 +6,8 @@ import { authApi } from "../features/auth/authApi";
 import authReducer from "../features/auth/authSlice";
 import productReducer from "../features/products/productSlice";
 import headerReducer from "../features/header/headerSlice";
+import productSortReducer from "../features/products/productSortSlice";
+import productFilterReducer from "../features/products/productFilterSlice";
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +16,8 @@ export const store = configureStore({
     // [productApi.reducerPath]: productApi.reducer,
     auth: authReducer,
     products: productReducer,
+    productSort: productSortReducer,
+    productFilter: productFilterReducer,
     header: headerReducer,
   },
   middleware: (getDefaultMiddleware) =>

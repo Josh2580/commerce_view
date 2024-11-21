@@ -14,7 +14,10 @@ import {
 import { useEffect, useState } from "react";
 import { Sort } from "../components/Sort";
 import { ListProducts } from "../components/ListProducts";
-import { useGetSubCategoryProductsQuery } from "../features/category/categoryApi";
+import {
+  useGetSubCategoryProductsQuery,
+  useGetSubCategoryProductFilterQuery,
+} from "../features/category/categoryApi";
 import { FeaturedProductType, ProductTypeFull } from "../types/ProductTypes";
 import { FeaturedProducts } from "../components/FeaturedProducts";
 import { useGetFeatruedProductsQuery } from "../features/products/productApi";
@@ -24,11 +27,33 @@ export const CategoryProductPage = () => {
   const CategoryTitle = category_slug?.toLocaleUpperCase();
   // console.log(CategoryTitle);
 
-  // Products Category API
+  // Sort String from redux state
+  const MyCurrentSort = useSelector((state: any) => state.productSort.sortKey);
+  // console.log(MyCurrentSort);
+
+  // Selector for current Store Filter from Redux State
+  const MyCurrentStoreFilter = useSelector(
+    (state: any) => state.productFilter.filterStoreKey
+  );
+
+  // console.log(MyCurrentStoreFilter);
+
+  //Category Products API
   const { data, isSuccess } = useGetSubCategoryProductsQuery({
     parent_category_id,
     category_id,
+    sort_string: MyCurrentSort,
   });
+
+  //Category Products API
+  const { data: FilterData, isSuccess: FilterSuccess } =
+    useGetSubCategoryProductFilterQuery({
+      parent_category_id,
+      category_id,
+      sort_string: MyCurrentSort,
+      filter_string: MyCurrentStoreFilter,
+    });
+  // FilterSuccess && console.log(FilterData);
 
   // Featured API call state
   const { data: featuredData, isSuccess: featuredSuccess } =
@@ -40,6 +65,14 @@ export const CategoryProductPage = () => {
     ProductTypeFull[]
   >([]);
 
+  // Category Products Filter State
+  const [CategoryProductFilterResult, SetCategoryProductFilterResult] =
+    useState<ProductTypeFull[]>([]);
+  // console.log(CategoryProductFilterResult);
+
+  // Remount Filter State
+  const [Key, SetKey] = useState<number>(0);
+
   // Featured Products State
   const [FeaturedProductResult, SetFeaturedProductResult] = useState<
     FeaturedProductType[]
@@ -50,6 +83,8 @@ export const CategoryProductPage = () => {
 
   const isCurrentFilter = useSelector((state: any) => state.header.isFilter);
   const isCurrentSort = useSelector((state: any) => state.header.isSort);
+
+  // console.log(isCurrentSort);
 
   useEffect(() => {
     dispatch(activateIcon());
@@ -68,6 +103,15 @@ export const CategoryProductPage = () => {
   }, [data, isSuccess]); // Only runs when `isSuccess` or `data` changes
 
   useEffect(() => {
+    // Filter for Category Products
+    // if (isSuccess && data) {
+    if (FilterSuccess && FilterData) {
+      SetCategoryProductFilterResult(FilterData.results);
+    }
+    // }, [data, isSuccess]); // Only runs when `isSuccess` or `data` changes
+  }, [FilterData, FilterSuccess]); // Only runs when `isSuccess` or `data` changes
+
+  useEffect(() => {
     // Sorting for Featured Products
 
     if (featuredSuccess && featuredData) {
@@ -78,6 +122,13 @@ export const CategoryProductPage = () => {
       SetFeaturedProductResult(MyFeaturedProduct);
     }
   }, [featuredSuccess, featuredData]);
+
+  useEffect(() => {
+    // // Trigger to Remount Filter State
+    if (MyCurrentStoreFilter.length === 0) {
+      SetKey((prevKey) => prevKey + 1);
+    }
+  }, [MyCurrentStoreFilter]);
 
   return (
     <div className="container gap-5 mx-auto my-responsive lg:flex ">
@@ -99,7 +150,7 @@ export const CategoryProductPage = () => {
               : "-translate-y-full lg:-translate-y-0"
           }  bg-opacity-60 lg:bg-opacity-100 backdrop-blur-lg lg:backdrop-blur-none  p-2 lg:p-0 flex w-full h-[100vh] lg:h-max `}
         >
-          <Filter />
+          <Filter key={Key} data={CategoryProductResult} />
         </div>
       </div>
 
@@ -113,7 +164,10 @@ export const CategoryProductPage = () => {
         {/* Category Product List */}
         {/* <ProductLists /> */}
         {isSuccess && (
-          <ListProducts data={CategoryProductResult} title={CategoryTitle} />
+          <ListProducts
+            data={CategoryProductFilterResult}
+            title={CategoryTitle}
+          />
         )}
 
         {/* New Products in this category

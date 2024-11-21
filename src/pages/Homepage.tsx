@@ -38,7 +38,7 @@ export const Homepage = () => {
   // Sub Category State
   const [StoreState, SetStoreState] = useState<StoreType[]>([]);
 
-  console.log(SubCategory);
+  // console.log(SubCategory);
 
   // Products API call state
   const { data, isSuccess } = useGetProductsQuery(undefined);
