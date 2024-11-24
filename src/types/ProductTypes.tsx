@@ -18,6 +18,12 @@ export interface ProductTypeFull {
   updated_at: string;
 }
 
+export interface ProductDetailsType {
+  product: ProductTypeFull;
+  similar_by_subcategories: {}[];
+  similar_by_store: {}[];
+}
+
 export interface DataType {
   count: number;
   next: string | null;
@@ -32,10 +38,6 @@ export interface ProductTitleType {
 export interface ProductData {
   data: ProductTypeFull[];
 }
-
-// "id": "4b5e2e37-9dbc-48b1-9ecd-ae9be07d5f98",
-//       "name": "first product",
-//       "image": "/media/products/product-1.jpg"
 
 export interface FeaturedProductType {
   id: number;

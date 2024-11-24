@@ -1,27 +1,18 @@
 import { baseApi } from "../base/baseApi";
-import { DataType, FeaturedDataType } from "../../types/ProductTypes";
+import {
+  DataType,
+  FeaturedDataType,
+  ProductDetailsType,
+} from "../../types/ProductTypes";
 
 const productApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getProducts: builder.query<DataType, void>({
-      query: (order_string) => `api/products/${order_string}`,
+      query: () => `api/products/`,
       providesTags: ["Product"],
-
-      // providesTags: ["Product"],
-      // providesTags: (result) =>
-      //   result
-      //     ? [
-      //         ...result.results.map(({ id }) => ({
-      //           type: "Product" as const,
-      //           id,
-      //         })),
-      //         { type: "Product", id: "LIST" },
-      //       ]
-      //     : [{ type: "Product", id: "LIST" }],
-      // keepUnusedDataFor: 300000,
     }),
-    getProductById: builder.query({
-      query: (id) => `products/${id}/`,
+    getProductById: builder.query<ProductDetailsType, string | undefined>({
+      query: (product_id) => `api/products/${product_id}/`,
 
       // providesTags: (result) =>
       //   result
@@ -60,4 +51,8 @@ const productApi = baseApi.injectEndpoints({
   // overrideExisting: false,
 });
 
-export const { useGetProductsQuery, useGetFeatruedProductsQuery } = productApi;
+export const {
+  useGetProductsQuery,
+  useGetFeatruedProductsQuery,
+  useGetProductByIdQuery,
+} = productApi;
