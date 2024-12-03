@@ -29,6 +29,10 @@
     @apply w-full bg-transparent border-b my-body-2 px-2 py-0.5  h-max focus:outline-none focus:border-blue-800;
   }
 
+  .my-checkout-group {
+    @apply flex flex-col sm:flex-row md:flex-col space-y-3 sm:space-y-0  sm:space-x-3 md:space-x-0;
+  }
+
   /* styles/globals.css */
 
   body,

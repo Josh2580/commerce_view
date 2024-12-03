@@ -7,52 +7,54 @@ import {
 
 const productApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
+    // Fetch all products
     getProducts: builder.query<DataType, void>({
       query: () => `api/products/`,
-      providesTags: ["Product"],
+      providesTags: ["Product"], // Tag all products for cache invalidation
     }),
+
+    // Fetch a specific product by ID
     getProductById: builder.query<ProductDetailsType, string | undefined>({
       query: (product_id) => `api/products/${product_id}/`,
-
-      // providesTags: (result) =>
-      //   result
-      //     ? [
-      //         { type: "Products", id: "LIST" }, // Cache for the product list
-      //         ...result.results.map(({ id }) => ({ type: "Product", id })), // Cache individual products
-      //       ]
-      //     : [], // Empty array if no data
+      providesTags: (result, error, product_id) => [
+        { type: "Product", id: product_id },
+      ], // Tag individual products by ID
     }),
-    // Define other endpoints like adding/updating products
-    // For example, adding a product might invalidate the cache
-    // addProduct: builder.mutation({
-    //   query: (newProduct) => ({
-    //     url: "api/products/",
-    //     method: "POST",
-    //     body: newProduct,
-    //   }),
-    //   invalidatesTags: [{ type: "Products", id: "LIST" }], // Invalidate product list cache after adding a product
-    // }),
-    // updateProduct: builder.mutation({
-    //   query: (updatedProduct) => ({
-    //     url: `api/products/${updatedProduct.id}`,
-    //     method: "PUT",
-    //     body: updatedProduct,
-    //   }),
-    //   invalidatesTags: (result, error, { id }) => [{ type: "Product", id }],
-    // }),
+
+    // Add a new product
+    addProduct: builder.mutation({
+      query: (newProduct) => ({
+        url: "api/products/",
+        method: "POST",
+        body: newProduct,
+      }),
+      invalidatesTags: ["Product"], // Invalidate all products to refresh the product list
+    }),
+
+    // Update an existing product
+    updateProduct: builder.mutation({
+      query: (updatedProduct) => ({
+        url: `api/products/${updatedProduct.id}`,
+        method: "PUT",
+        body: updatedProduct,
+      }),
+      invalidatesTags: (result, error, updatedProduct) => [
+        { type: "Product", id: updatedProduct.id },
+      ], // Invalidate the specific product to refresh its data
+    }),
+
+    // Fetch featured products
     getFeatruedProducts: builder.query<FeaturedDataType, void>({
       query: () => "api/products/featured/",
+      providesTags: ["FeaturedProduct"], // Tag featured products for cache control
     }),
-
-    // Optional: Set default cache time and other cache settings
-    // keepUnusedDataFor: 60, // Cache is kept for 60 seconds before being invalidated
-    // refetchOnMountOrArgChange: true, // Optional: Re-fetch if the component mounts again
   }),
-  // overrideExisting: false,
 });
 
 export const {
   useGetProductsQuery,
   useGetFeatruedProductsQuery,
   useGetProductByIdQuery,
+  useAddProductMutation,
+  useUpdateProductMutation,
 } = productApi;

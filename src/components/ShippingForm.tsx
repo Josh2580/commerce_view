@@ -13,11 +13,25 @@ export const ShippingForm = () => {
    container my-responsive gap-3 mx-auto mt-3 flex flex-col bg-white"
     >
       <form onSubmit={SubmitHandler} className="  space-y-3">
-        <div className="flex flex-col  lg:flex-row space-y-3 md:space-y-0 lg:space-x-3">
+        <div className="flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-3">
           <input
             type="text"
-            placeholder="Full Name"
-            className="my-input "
+            placeholder="First Name"
+            className="my-input"
+            required
+          />
+          <input
+            type="text"
+            placeholder="Last Name"
+            className="my-input"
+            required
+          />
+        </div>
+        <div className="flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-3">
+          <input
+            type="email"
+            placeholder="Email Address"
+            className="my-input"
             required
           />
           <input
@@ -27,12 +41,7 @@ export const ShippingForm = () => {
             required
           />
         </div>
-        <input
-          type="email"
-          placeholder="Email Address"
-          className="my-input"
-          required
-        />
+
         <input
           type="text"
           placeholder="Address Line 1"

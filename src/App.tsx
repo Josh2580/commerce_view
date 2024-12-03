@@ -24,6 +24,10 @@ import { DashboardPage } from "./pages/DashboardPage";
 import { ShippingForm } from "./components/ShippingForm";
 import { CheckoutRoute } from "./pages/routes/CheckoutRoute";
 import { PaymentForm } from "./components/PaymentForm";
+import { LoginPage } from "./pages/LoginPage";
+import { CustomerRegistrationPage } from "./pages/registration/CustomerRegistrationPage";
+import { SellerRegistrationPage } from "./pages/registration/SellerRegistrationPage";
+import { ForgotPasswordPage } from "./pages/ForgetPasswordPage";
 
 const router = createBrowserRouter([
   {
@@ -33,10 +37,6 @@ const router = createBrowserRouter([
 
     children: [
       { index: true, element: <Homepage /> },
-      // {
-      //   path: "details/:blogId",
-      //   element: <DetailsPage />,
-      // },
       /* the rest of the routes */
       {
         path: "/:category_slug/:parent_category_id/caty/:category_id",
@@ -49,6 +49,22 @@ const router = createBrowserRouter([
       {
         path: "/cart",
         element: <ShoppingCartPage />,
+      },
+      {
+        path: "/login",
+        element: <LoginPage />,
+      },
+      {
+        path: "/register",
+        element: <CustomerRegistrationPage />,
+      },
+      {
+        path: "/register-seller",
+        element: <SellerRegistrationPage />,
+      },
+      {
+        path: "/forget-password",
+        element: <ForgotPasswordPage />,
       },
     ],
   },

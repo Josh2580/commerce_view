@@ -2,6 +2,7 @@ import React from "react";
 // import { Breadcrumb } from "../components/Breadcrumb";
 import { CartSummary } from "../components/CartSummary";
 import { PriceSummary } from "../components/PriceSummary";
+// import { useGetCartQuery } from "../features/cart/cartApi";
 
 export const ShoppingCartPage: React.FC = () => {
   return (

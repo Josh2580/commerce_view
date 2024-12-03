@@ -22,6 +22,7 @@ export interface ProductDetailsType {
   product: ProductTypeFull;
   similar_by_subcategories: {}[];
   similar_by_store: {}[];
+  product_reviews: {}[];
 }
 
 export interface DataType {
