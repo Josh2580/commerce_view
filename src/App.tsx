@@ -21,9 +21,7 @@ import { LoyaltyPrograms } from "./components/LoyaltyPrograms";
 import { Notifications } from "./components/Notifications";
 import { SecurityPage } from "./pages/SecurityPage";
 import { DashboardPage } from "./pages/DashboardPage";
-import { ShippingForm } from "./components/ShippingForm";
 import { CheckoutRoute } from "./pages/routes/CheckoutRoute";
-import { PaymentForm } from "./components/PaymentForm";
 import { LoginPage } from "./pages/LoginPage";
 import { CustomerRegistrationPage } from "./pages/registration/CustomerRegistrationPage";
 import { SellerRegistrationPage } from "./pages/registration/SellerRegistrationPage";
@@ -73,14 +71,6 @@ const router = createBrowserRouter([
     path: "/checkout",
     element: <CheckoutRoute />,
     children: [
-      {
-        path: "shipping-address",
-        element: <ShippingForm />,
-      },
-      {
-        path: "payment",
-        element: <PaymentForm />,
-      },
       {
         path: "confirm-order",
         element: <CheckoutPage />,

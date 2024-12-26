@@ -5,6 +5,8 @@ import { setupListeners } from "@reduxjs/toolkit/query";
 // import { authApi } from "../features/auth/authApi";
 // import { productApi } from "../features/products/productApi";
 import authReducer from "../features/auth/authSlice";
+import addressReducer from "../features/address/addressSlice";
+import paymentReducer from "../features/payment/paymentSlice";
 import productReducer from "../features/products/productSlice";
 import headerReducer from "../features/header/headerSlice";
 import productSortReducer from "../features/products/productSortSlice";
@@ -16,6 +18,8 @@ export const store = configureStore({
     // [authApi.reducerPath]: authApi.reducer,
     // [productApi.reducerPath]: productApi.reducer,
     auth: authReducer,
+    address: addressReducer,
+    payment: paymentReducer,
     products: productReducer,
     productSort: productSortReducer,
     productFilter: productFilterReducer,

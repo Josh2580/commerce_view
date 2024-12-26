@@ -15,6 +15,8 @@ export const FirstHeader = () => {
 
   const searchIcon = useSelector((state: any) => state.header.searchIcon);
   const searchBar = useSelector((state: any) => state.header.searchBar);
+  const isAuthenticated = useSelector((state: any) => state.auth.accessToken);
+
   const sortFilterIcon = useSelector(
     (state: any) => state.header.sortFilterIcon
   );
@@ -82,6 +84,16 @@ export const FirstHeader = () => {
                   <span className="hidden lg:flex my-header-4">Search</span>
                 </Link>
               )}
+
+              <Link
+                to="/login"
+                className=" text-gray-600 flex flex-col items-center "
+              >
+                <HiOutlineUser className=" my-icons" />
+                <span className="hidden lg:flex my-header-4">
+                  {isAuthenticated ? "Logout" : "Login"}
+                </span>
+              </Link>
 
               <Link
                 to="/account"
