@@ -4,11 +4,11 @@ import { RootState } from "../../app/store";
 export const baseApi = createApi({
   reducerPath: "baseApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://127.0.0.1:8000",
+    baseUrl: "http://192.168.32.239:8000",
     // baseUrl: "http://192.168.134.80:8000",
     credentials: "include", // Include cookies in all requests
     prepareHeaders: (headers, { getState }) => {
-      let accessToken = (getState() as RootState).auth.accessToken;
+      const accessToken = (getState() as RootState).auth.accessToken;
       const sessionKey = sessionStorage.getItem("sessionKey");
       if (sessionKey) {
         headers.set("X-Session-Key", sessionKey); // Custom header for session key

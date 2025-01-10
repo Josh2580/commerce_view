@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 // import { Admin, ListGuesser, Resource } from "react-admin";
 // import { usePaymentTransactionsQuery } from "../features/payment/paymentApi";
 // import dataProvider from "../components/dashboard/dataProvider";
+import { CustomCellRendererProps } from "ag-grid-react";
+import AgGridTable from "../components/AgGridTable";
 import { useGetOrderQuery } from "../features/orders/orderApi";
-import { AgGridReact } from "ag-grid-react"; // React Data Grid Component
 
-interface Order {
+interface OrderInterface {
   id: string;
   status: string;
   total: string;
@@ -20,7 +21,7 @@ interface Order {
   }[];
 }
 
-const orders: Order[] = [
+const orders: OrderInterface[] = [
   {
     id: "123456789",
     order_id: "rderalkjl alksgkalgjkla g",
@@ -213,8 +214,60 @@ export const OrderHistory: React.FC = () => {
         // define a height because the Data Grid will fill the size of the parent container
         style={{ height: 300 }}
       >
-        <AgGridReact rowData={orderData} columnDefs={colDefs2} />
+        <AgGridTable
+          rowData={orders as OrderInterface[]}
+          columnDefs={[
+            {
+              field: "order_id",
+              headerName: "Order Id",
+            },
+            {
+              field: "total",
+              headerName: "Total",
+            },
+            {
+              field: "status",
+              headerName: "Status",
+              cellRenderer: StatusCellRenderer,
+            },
+            {
+              field: "items",
+              headerName: "Status",
+              cellRenderer: StatusCellRenderer,
+            },
+          ]}
+        />
       </div>
+    </div>
+  );
+};
+
+const StatusCellRenderer = ({
+  node,
+}: CustomCellRendererProps<OrderInterface>) => {
+  if (!node.data) return null;
+
+  if (!node.data) return null;
+
+  const variant = () => {
+    if (!node.data) return "text-gray-500";
+    switch (node.data.status.toLowerCase()) {
+      case "shipped":
+        return "text-orange-400";
+      case "delivered":
+        return "text-green-500";
+      case "declined":
+        return "text-red-500";
+      default:
+        return "text-gray-500";
+    }
+  };
+
+  return (
+    <div className="flex items-center h-full">
+      <p className={`truncate text-sm font-medium capitalize ${variant()}`}>
+        {node.data.status}
+      </p>
     </div>
   );
 };
