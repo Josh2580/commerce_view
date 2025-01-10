@@ -1,19 +1,30 @@
 import { baseApi } from "../base/baseApi";
-import { AdressType } from "../../types/AddressType";
 
-const paymentApi = baseApi.injectEndpoints({
+export const paymentApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     // Login for Users
     // getAddress: builder.query<AdressType, void>({
-    getPaymentMethods: builder.query({ query: () => "api/payment/methods/" }),
-    createAddress: builder.mutation({
-      query: (addressData) => ({
-        url: "api/address/",
+    getPaymentMethods: builder.query({ query: () => "api/payments/methods/" }),
+    createPaymentInitializer: builder.mutation({
+      query: (initPayData) => ({
+        url: "api/payments/initialize/",
         method: "POST",
-        body: addressData,
+        body: initPayData,
       }),
+    }),
+    verifyPayment: builder.query({
+      query: ({ status, tx_ref, transaction_id }) =>
+        `api/payments/verify/?status=${status}&tx_ref=${tx_ref}&transaction_id=${transaction_id}`,
+    }),
+    paymentTransactions: builder.query({
+      query: () => "api/payments/transactions",
     }),
   }),
 });
 
-export const { useGetPaymentMethodsQuery } = paymentApi;
+export const {
+  useGetPaymentMethodsQuery,
+  useCreatePaymentInitializerMutation,
+  useVerifyPaymentQuery,
+  usePaymentTransactionsQuery,
+} = paymentApi;

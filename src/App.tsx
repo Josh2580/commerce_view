@@ -10,15 +10,15 @@ import { ProductDetailsPage } from "./pages/ProductDetailsPage";
 import { ShoppingCartPage } from "./pages/ShoppingCartPage";
 import { CheckoutPage } from "./pages/CheckoutPage";
 import { AccountDashboardPage } from "./pages/AccountDashboardPage";
-import { AccountOverview } from "./components/AccountOverview";
+import { AccountOverview } from "./pages/AccountOverview";
 
-import { OrderHistory } from "./components/OrderHistory";
+import { OrderHistory } from "./pages/OrderHistory";
 import { ProfileSettings } from "./components/ProfileSettings";
 import { AddressBook } from "./components/AddressBook";
 import { PaymentMethods } from "./components/PaymentMethods";
 import { WishList } from "./components/Wishlist";
 import { LoyaltyPrograms } from "./components/LoyaltyPrograms";
-import { Notifications } from "./components/Notifications";
+import { Notifications } from "./pages/Notifications";
 import { SecurityPage } from "./pages/SecurityPage";
 import { DashboardPage } from "./pages/DashboardPage";
 import { CheckoutRoute } from "./pages/routes/CheckoutRoute";
@@ -26,6 +26,8 @@ import { LoginPage } from "./pages/LoginPage";
 import { CustomerRegistrationPage } from "./pages/registration/CustomerRegistrationPage";
 import { SellerRegistrationPage } from "./pages/registration/SellerRegistrationPage";
 import { ForgotPasswordPage } from "./pages/ForgetPasswordPage";
+import { OrderConfirmationPage } from "./pages/OrderConfirmationPage";
+import { AllCommunityModule, ModuleRegistry } from "ag-grid-community";
 
 const router = createBrowserRouter([
   {
@@ -75,6 +77,10 @@ const router = createBrowserRouter([
         path: "confirm-order",
         element: <CheckoutPage />,
       },
+      {
+        path: "confirm-order-payment",
+        element: <OrderConfirmationPage />,
+      },
     ],
   },
 
@@ -82,7 +88,8 @@ const router = createBrowserRouter([
     path: "/account",
     element: <AccountDashboardPage />,
     children: [
-      { index: true, element: <AccountOverview /> },
+      // { index: true, element: <AccountOverview /> },
+      { path: "overview", element: <AccountOverview /> },
       { path: "orders", element: <OrderHistory /> },
       { path: "settings", element: <ProfileSettings /> },
       { path: "addresses", element: <AddressBook /> },
@@ -100,9 +107,15 @@ const router = createBrowserRouter([
 ]);
 
 const App: React.FC = () => {
+  /** 
+   Register all Community features.
+  is for the Order History table and some other dashboard tables
+  **/
+  ModuleRegistry.registerModules([AllCommunityModule]);
+  // Returns the App
   return (
     <>
-      <div className="bg-slate-100">
+      <div className="bg-white">
         <RouterProvider router={router} />
       </div>
     </>

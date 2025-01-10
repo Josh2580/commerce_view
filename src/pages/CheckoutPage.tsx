@@ -7,15 +7,23 @@ import {
   useGetAddressQuery,
   useCreateAddressMutation,
 } from "../features/address/addressApi";
-import { useGetPaymentMethodsQuery } from "../features/payment/paymentApi";
+import {
+  useGetPaymentMethodsQuery,
+  useCreatePaymentInitializerMutation,
+} from "../features/payment/paymentApi";
 import { PaymentMethods } from "../components/PaymentMethods";
 import { CheckoutProducts } from "../components/CheckoutProducts";
-import { useCreateOrderMutation } from "../features/orders/orderApi";
+import {
+  useCreateOrderMutation,
+  useCreateOrderItemsMutation,
+} from "../features/orders/orderApi";
 
 export const CheckoutPage = () => {
   const dispatch = useDispatch();
   const [createAddressApi] = useCreateAddressMutation();
+  const [createPayInitApi] = useCreatePaymentInitializerMutation();
   const [createOrderApi] = useCreateOrderMutation();
+  const [createOrderItemApi] = useCreateOrderItemsMutation();
   const { data } = useGetAddressQuery(undefined);
   const { data: paymentMethodsData, isSuccess: paymentMethodsSuccess } =
     useGetPaymentMethodsQuery(undefined);
@@ -32,8 +40,7 @@ export const CheckoutPage = () => {
   const [PostalCode, SetPostalCode] = useState("");
   const [Phone, SetPhone] = useState("");
 
-  const handleFormSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const addressFunction = async () => {
     let addressForm = new FormData();
     addressForm.append("full_name", FullName);
     addressForm.append("email", Email);
@@ -49,17 +56,64 @@ export const CheckoutPage = () => {
       if (addressResult.data) {
         dispatch(setAddressID(addressResult.data.id));
         SetIdCheck(addressResult.data.id);
+        return addressResult.data.id;
       }
     } else {
       dispatch(setAddressID(IdCheck));
-      const orderForm = new FormData();
-      orderForm.append("payment_method", PaymentMethod);
-      orderForm.append("address", IdCheck);
-      const orderResult = await createOrderApi(orderForm);
-      if (orderResult) {
-        console.log(orderResult);
+      return IdCheck;
+    }
+  };
+
+  const orderFunction = async (addressId: number) => {
+    const orderForm = new FormData();
+    orderForm.append("payment_method", PaymentMethod);
+    orderForm.append("address", addressId.toString());
+    const orderResult = await createOrderApi(orderForm);
+    if (orderResult) {
+      // console.log(orderResult);
+      return orderResult.data;
+    }
+  };
+
+  const orderItemFunction = async () => {
+    const orderItemResult = await createOrderItemApi("null");
+    if (orderItemResult) {
+      // console.log(orderResult);
+      return orderItemResult;
+    }
+  };
+
+  const initializePaymentFunction = async (amount: string) => {
+    if (amount) {
+      const payInitForm = new FormData();
+      payInitForm.append("amount", amount);
+      const payInitResult = await createPayInitApi(payInitForm);
+      if (payInitResult) {
+        // console.log(payInitResult);
+        return payInitResult.data;
       }
     }
+  };
+
+  const openLinkFunction = async (link: string) => {
+    if (link) {
+      window.open(link, "_blank");
+    }
+  };
+
+  const handleFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const addressId = await addressFunction();
+    console.log("addressId: ", addressId);
+    const orderInfo = await orderFunction(addressId);
+    console.log("orderInfo: ", orderInfo);
+    const orderItem = await orderItemFunction();
+    // orderItem && console.log("orderItem: ", orderItem.data.data);
+    const amount = orderItem && orderItem.data.data.total;
+    const initPay = await initializePaymentFunction(amount);
+    console.log("initPay: ", initPay);
+    const payResult = await openLinkFunction(initPay.call_rsp.data.link);
+    console.log(payResult);
   };
 
   const SelectAddressHandler = (address: any) => {

@@ -1,10 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { useGetCartQuery } from "../features/cart/cartApi";
 export const PriceSummary: React.FC = () => {
-  const subtotal = 899; // Example value
-  const shipping = 10; // Example value
-  const discount = 50; // Example value
+  const { data } = useGetCartQuery();
+  // console.log(data);
+
+  const subtotal = data ? data.get_total : 0; // Example value
+  const shipping = 0; // Example value
+  const discount = 0; // Example value
   const total = subtotal + shipping - discount;
 
   return (

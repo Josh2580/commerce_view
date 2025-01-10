@@ -60,6 +60,30 @@ export const SidebarMenu: React.FC = () => {
           />
           <SidebarItem
             icon={<FaUser />}
+            label="Profile"
+            isCollapsed={isCollapsed}
+            pathTo=""
+          />
+          <SidebarItem
+            icon={<FaBox />}
+            label="Address Book"
+            isCollapsed={isCollapsed}
+            pathTo="addresses"
+          />
+          <SidebarItem
+            icon={<FaBox />}
+            label="Payment Methods"
+            isCollapsed={isCollapsed}
+            pathTo="payment-methods"
+          />
+          <SidebarItem
+            icon={<FaBox />}
+            label="Security"
+            isCollapsed={isCollapsed}
+            pathTo="security"
+          />
+          {/* <SidebarItem
+            icon={<FaUser />}
             label="Account"
             isCollapsed={isCollapsed}
             subMenuItems={[
@@ -68,7 +92,7 @@ export const SidebarMenu: React.FC = () => {
               { subLabel: "Payment Methods", subPath: "payment-methods" },
               { subLabel: "Security", subPath: "security" },
             ]}
-          />
+          /> */}
           <SidebarItem
             icon={<FaCog />}
             label="Settings"

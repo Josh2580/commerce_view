@@ -5,15 +5,25 @@ const orderApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     // Login for Users
     // getAddress: builder.query<AdressType, void>({
-    // getAddress: builder.query({ query: () => "api/address/" }),
+    getOrder: builder.query({ query: () => "api/orders/" }),
     createOrder: builder.mutation({
       query: (orderForm) => ({
-        url: "api/orders/create/",
+        url: "api/orders/",
         method: "POST",
         body: orderForm,
+      }),
+    }),
+    createOrderItems: builder.mutation({
+      query: () => ({
+        url: "api/orders/items/",
+        method: "POST",
       }),
     }),
   }),
 });
 
-export const { useCreateOrderMutation } = orderApi;
+export const {
+  useCreateOrderMutation,
+  useCreateOrderItemsMutation,
+  useGetOrderQuery,
+} = orderApi;
