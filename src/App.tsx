@@ -27,7 +27,7 @@ import { CustomerRegistrationPage } from "./pages/registration/CustomerRegistrat
 import { SellerRegistrationPage } from "./pages/registration/SellerRegistrationPage";
 import { ForgotPasswordPage } from "./pages/ForgetPasswordPage";
 import { OrderConfirmationPage } from "./pages/OrderConfirmationPage";
-import { AllCommunityModule, ModuleRegistry } from "ag-grid-community";
+import { ProductsManagements } from "./pages/ProductsManagements";
 
 const router = createBrowserRouter([
   {
@@ -91,13 +91,17 @@ const router = createBrowserRouter([
       // { index: true, element: <AccountOverview /> },
       { path: "overview", element: <AccountOverview /> },
       { path: "orders", element: <OrderHistory /> },
+      { path: "products", element: <ProductsManagements /> },
       { path: "settings", element: <ProfileSettings /> },
       { path: "addresses", element: <AddressBook /> },
       { path: "payment-methods", element: <PaymentMethods /> },
       { path: "wishlist", element: <WishList /> },
       { path: "loyalty", element: <LoyaltyPrograms /> },
       { path: "notifications", element: <Notifications /> },
-      { path: "security", element: <SecurityPage /> },
+      {
+        path: "security",
+        element: <SecurityPage />,
+      },
     ],
   },
   {
@@ -107,18 +111,12 @@ const router = createBrowserRouter([
 ]);
 
 const App: React.FC = () => {
-  /** 
-   Register all Community features.
-  is for the Order History table and some other dashboard tables
-  **/
-  ModuleRegistry.registerModules([AllCommunityModule]);
   // Returns the App
   return (
-    <>
-      <div className="bg-white">
-        <RouterProvider router={router} />
-      </div>
-    </>
+    <div className="w-full">
+      <RouterProvider router={router} />
+      {/* <h1>testing</h1> */}
+    </div>
   );
 };
 

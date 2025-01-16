@@ -36,12 +36,12 @@
   /* styles/globals.css */
 
   body,
-  #root,
   p,
   h3 {
     padding: 0px;
     margin: 0px;
   }
+
   * {
     @apply font-sans;
   }

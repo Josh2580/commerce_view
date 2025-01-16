@@ -16,6 +16,7 @@ export interface ProductTypeFull {
   store?: number | null;
   store_name: string | null;
   updated_at: string;
+  views: number;
 }
 
 export interface ProductDetailsType {

@@ -30,17 +30,24 @@ export const AccountOverview: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
         <div className="p-6 bg-white shadow-md rounded-lg flex items-center justify-between">
           <div>
-            <h3 className="text-xl font-medium">Account Balance</h3>
-            <p className="text-2xl text-gray-700">$1,234.56</p>
+            <h3 className="text-xl font-medium">Orders</h3>
+            <p className="text-2xl text-gray-700">20</p>
           </div>
-          <FaWallet className="text-green-600 text-3xl" />
+          <FaWallet className="text-green-600 text-2xl" />
         </div>
         <div className="p-6 bg-white shadow-md rounded-lg flex items-center justify-between">
           <div>
-            <h3 className="text-xl font-medium">Loyalty Points</h3>
+            <h3 className="text-xl font-medium">Total Sales</h3>
             <p className="text-2xl text-gray-700">567</p>
           </div>
-          <FaStar className="text-yellow-500 text-3xl" />
+          <FaStar className="text-yellow-500 text-2xl" />
+        </div>
+        <div className="p-6 bg-white shadow-md rounded-lg flex items-center justify-between">
+          <div>
+            <h3 className="text-xl font-medium">Products</h3>
+            <p className="text-2xl text-gray-700">20</p>
+          </div>
+          <FaWallet className="text-green-600 text-2xl" />
         </div>
       </div>
 
