@@ -253,7 +253,13 @@ export const SidebarMenu: React.FC = () => {
           icon={<FaHome />}
           label="Dashboard"
           isCollapsed={isCollapsed}
-          pathTo="overview"
+          pathTo="dashboard"
+        />
+        <SidebarItem
+          icon={<FaHome />}
+          label="Dashboard Second"
+          isCollapsed={isCollapsed}
+          pathTo="dashboard-second"
         />
         <SidebarItem
           icon={<FaBox />}
@@ -272,6 +278,19 @@ export const SidebarMenu: React.FC = () => {
           label="Profile"
           isCollapsed={isCollapsed}
           pathTo="profile"
+        />
+
+        <SidebarItem
+          icon={<FaUser />}
+          label="Store"
+          isCollapsed={isCollapsed}
+          pathTo="store"
+        />
+        <SidebarItem
+          icon={<FaUser />}
+          label="Store Second"
+          isCollapsed={isCollapsed}
+          pathTo="store-second"
         />
         <SidebarItem
           icon={<FaCog />}

@@ -8,11 +8,13 @@ import {
 import { useGetProductsQuery } from "../features/products/productApi";
 import { ProductTypeFull } from "../types/ProductTypes";
 import ProductImg from "../assets/product-1.jpg";
+// import { useNavigate } from "react-router-dom";
 
 // Component
 export const ProductTable: React.FC = () => {
   const { data: productsData, isSuccess } = useGetProductsQuery(undefined);
-  isSuccess && console.log(productsData?.results);
+  // isSuccess && console.log(productsData?.results);
+  // const navigate = useNavigate();
 
   const [data, setData] = useState<ProductTypeFull[]>([]);
   const [expandedRow, setExpandedRow] = useState<ProductTypeFull | null>(null);
@@ -68,6 +70,9 @@ export const ProductTable: React.FC = () => {
     getCoreRowModel: getCoreRowModel(),
   });
 
+  // const CategoryHandler = () =>
+  //   navigate("/:category_slug/:parent_category_id/caty/:category_id");
+
   return (
     <div className="container mx-auto">
       <div className="overflow-x-auto">
@@ -96,7 +101,7 @@ export const ProductTable: React.FC = () => {
               <tr
                 key={row.id}
                 className="hover:bg-gray-50 transition"
-                onClick={() => setExpandedRow(row.original)}
+                // onClick={() => setExpandedRow(row.original)}
               >
                 {row.getVisibleCells().map((cell) => (
                   <td key={cell.id} className="p-3 border-b border-gray-300">
@@ -146,12 +151,16 @@ export const ProductTable: React.FC = () => {
                       <strong>Total Sales:</strong> ${expandedRow.total_sales}
                     </p>
                     <p>
-                      <strong>Old Price:</strong> {expandedRow.old_price}
-                    </p>
-
-                    <p>
                       <strong>Price:</strong> {expandedRow.price}
                     </p>
+                    <p>
+                      <strong>Old Price:</strong>{" "}
+                      <span className="line-through decoration-double">
+                        {" "}
+                        {expandedRow.old_price}{" "}
+                      </span>
+                    </p>
+
                     <p>
                       <strong>Payment Date:</strong>{" "}
                       {new Date(expandedRow.created_at).toLocaleDateString()}
@@ -161,34 +170,41 @@ export const ProductTable: React.FC = () => {
               </div>
 
               <div>
-                <h4 className="font-semibold text-gray-700">Payment Details</h4>
                 <p>
                   <strong>Description:</strong> {expandedRow.description}
                 </p>
               </div>
 
               <div>
-                <h4 className="font-semibold text-gray-700">Items Purchased</h4>
-                <ul className="divide-y divide-gray-200">
-                  {expandedRow.categories.map((item) => (
-                    <li key={item} className="flex items-center py-2">
-                      {/* <img
-                        src={item || "placeholder.png"}
-                        alt={item}
+                <h4 className="font-semibold text-gray-700">
+                  Product Categories
+                </h4>
+                <ul className="divide-y divide-gray-200 max-w-max">
+                  {expandedRow.categories_info.map((item, idx) => (
+                    <li
+                      key={idx}
+                      className="flex items-center bg-green-5 py-2 "
+                    >
+                      <img
+                        src={ProductImg || item.image}
+                        alt={item.name}
                         className="w-16 h-16 object-cover rounded"
-                      /> */}
-                      <div className="ml-4 w-full flex gap-12 justify-between">
-                        <div className="sm:flex justify-between w-full">
-                          <p className="font-semibold">{item}</p>
-                          <p>
-                            <strong>Price:</strong> ${item}
+                      />
+                      <div className="ml-4 w-full  flex gap-12 ">
+                        <div className="sm:flex gap-4 w-full">
+                          {/* <p className="font-semibold">{item.id}</p> */}
+                          <p
+                            className=""
+                            // onClick={CategoryHandler}
+                          >
+                            <strong>Name:</strong> {item.name}
                           </p>
                         </div>
-                        <div className="sm:flex justify-between w-full">
+                        {/* <div className="sm:flex justify-between w-full">
                           <p>
-                            <strong>Quantity:</strong> {item}
+                            <strong>Slug:</strong> {item.slug}
                           </p>
-                        </div>
+                        </div> */}
                       </div>
                     </li>
                   ))}

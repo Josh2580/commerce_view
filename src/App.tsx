@@ -28,6 +28,11 @@ import { SellerRegistrationPage } from "./pages/registration/SellerRegistrationP
 import { ForgotPasswordPage } from "./pages/ForgetPasswordPage";
 import { OrderConfirmationPage } from "./pages/OrderConfirmationPage";
 import { ProductsManagements } from "./pages/ProductsManagements";
+import { ProfilePage } from "./pages/ProfilePage";
+import { ProfilePageSecond } from "./pages/ProfilePageSecond";
+import { DashboardPageSecond } from "./pages/DashboardPageSecond";
+import { ManageStorePage } from "./pages/ManageStorePage";
+import { ManageStorePageSecond } from "./pages/ManageStorePageSecond";
 
 const router = createBrowserRouter([
   {
@@ -89,9 +94,16 @@ const router = createBrowserRouter([
     element: <AccountDashboardPage />,
     children: [
       // { index: true, element: <AccountOverview /> },
-      { path: "overview", element: <AccountOverview /> },
+      { path: "dashboard", element: <AccountOverview /> },
+      {
+        path: "dashboard-second",
+        element: <DashboardPageSecond />,
+      },
       { path: "orders", element: <OrderHistory /> },
       { path: "products", element: <ProductsManagements /> },
+      { path: "profile", element: <ProfilePage /> },
+      { path: "store", element: <ManageStorePage /> },
+      { path: "store-second", element: <ManageStorePageSecond /> },
       { path: "settings", element: <ProfileSettings /> },
       { path: "addresses", element: <AddressBook /> },
       { path: "payment-methods", element: <PaymentMethods /> },

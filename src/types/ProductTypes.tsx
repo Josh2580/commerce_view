@@ -17,6 +17,14 @@ export interface ProductTypeFull {
   store_name: string | null;
   updated_at: string;
   views: number;
+  categories_info: [
+    {
+      name: string;
+      id: number;
+      image: string;
+      slug: string;
+    }
+  ];
 }
 
 export interface ProductDetailsType {

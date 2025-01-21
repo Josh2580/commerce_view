@@ -114,7 +114,7 @@ export const OrderTable: React.FC = () => {
               <tr
                 key={row.id}
                 className="hover:bg-gray-50 transition"
-                onClick={() => setExpandedRow(row.original)}
+                // onClick={() => setExpandedRow(row.original)}
               >
                 {row.getVisibleCells().map((cell) => (
                   <td key={cell.id} className="p-3 border-b border-gray-300">
